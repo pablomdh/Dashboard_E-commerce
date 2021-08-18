@@ -8,7 +8,7 @@ function Orders() {
         <h1>Órdenes</h1>
         <table className="table">
           <tr>
-            <th>Número de Órden</th>
+            <th>Número de Orden</th>
             <th>Fecha</th>
             <th>Cliente</th>
             <th>Precio Total</th>

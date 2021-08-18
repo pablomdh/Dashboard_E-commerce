@@ -25,7 +25,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item me-1 ms-1">
                 <Link to="/orders" className="nav-link">
-                  Ordenes
+                  Órdenes
                 </Link>
               </li>
               <li className="nav-item me-1 ms-1">
