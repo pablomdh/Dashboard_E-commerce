@@ -1,7 +1,7 @@
-.card {
+.nomatch {
   height: 20rem;
 }
 
-.nomatch {
-  height: 20rem;
+.input {
+  border: none;
 }

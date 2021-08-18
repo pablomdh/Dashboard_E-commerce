@@ -20,17 +20,17 @@ const Navbar = () => {
             <ul className="navbar-nav m-auto">
               <li className="nav-item me-1 ms-1">
                 <Link to="/" className="nav-link active" aria-current="page">
-                  Inicio
+                  Productos
                 </Link>
               </li>
               <li className="nav-item me-1 ms-1">
-                <Link to="/tienda" className="nav-link">
-                  Tienda
+                <Link to="/orders" className="nav-link">
+                  Ordenes
                 </Link>
               </li>
               <li className="nav-item me-1 ms-1">
-                <Link to="categorias" className="nav-link">
-                  Categorías
+                <Link to="/graphs" className="nav-link">
+                  Gráficos
                 </Link>
               </li>
               <li className="nav-item me-1 ms-1">

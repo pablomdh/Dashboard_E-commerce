@@ -1,23 +1,27 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+import Product from "../Product/Product";
 
-function Home() {
+function Dashboard() {
   return (
-    <div>
-      <main className="bg-secondary">
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-3 bg-dark card m-3"></div>
-          <div className="col-md-3 bg-dark card m-3"></div>
-          <div className="col-md-3 bg-dark card m-3"></div>
-        </div>
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-3 bg-dark card m-3"></div>
-          <div className="col-md-3 bg-dark card m-3"></div>
-          <div className="col-md-3 bg-dark card m-3"></div>
-        </div>
+    <div className="container">
+      <main className="bg-light">
+        <h1>Productos</h1>
+        <table className="table">
+          <tr>
+            <th>Item</th>
+            <th>Descripción</th>
+            <th>Destacados</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Foto</th>
+            <th>Eliminar</th>
+          </tr>
+          {/* map de productos rendering el componente */}
+          <Product />
+        </table>
       </main>
     </div>
   );
 }
 
-export default Home;
+export default Dashboard;
