@@ -46,20 +46,20 @@ function Order() {
           <input
             className="input"
             type="text"
-            name="state"
-            id={`${orderId}state`}
-            value={state}
-            onChange={(e) => setState(e.target.value)}
+            name="price"
+            id={`${orderId}price`}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </td>
         <td>
           <input
             className="input"
             type="text"
-            name="price"
-            id={`${orderId}price`}
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            name="state"
+            id={`${orderId}state`}
+            value={state}
+            onChange={(e) => setState(e.target.value)}
           />
         </td>
         <td>

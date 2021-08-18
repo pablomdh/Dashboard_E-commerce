@@ -18,6 +18,9 @@ function Orders() {
           {/* map de productos rendering el componente */}
           <Order />
         </table>
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-warning my-4">Guardar Cambios</button>
+        </div>
       </main>
     </div>
   );

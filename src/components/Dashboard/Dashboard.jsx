@@ -19,6 +19,9 @@ function Dashboard() {
           {/* map de productos rendering el componente */}
           <Product />
         </table>
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-warning my-4">Guardar Cambios</button>
+        </div>
       </main>
     </div>
   );

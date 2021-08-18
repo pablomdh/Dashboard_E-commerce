@@ -40,7 +40,7 @@ function Product() {
             id={`${item}bestproduct`}
             value={bestProduct}
             checked={bestProduct}
-            onChange={(e) => setBestProduct(e.target.value)}
+            onChange={(e) => setBestProduct(!bestProduct)}
           />
         </td>
         <td>
