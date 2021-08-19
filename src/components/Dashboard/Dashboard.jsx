@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Product from "../Product/Product";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const products = useSelector((state) => state.products);
@@ -26,6 +27,7 @@ function Dashboard() {
 
   return (
     <div className="container">
+      <Link to="/create-product"> Crear producto </Link>
       <main className="bg-light">
         <h1>Productos</h1>
         <table className="table">

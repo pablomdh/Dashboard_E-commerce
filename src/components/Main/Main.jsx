@@ -6,6 +6,7 @@ import NoMatch from "../NoMatch/NoMatch";
 import Navbar from "../Navbar/Navbar";
 import Orders from "../Orders/Orders";
 import Graphs from "../Graphs/Graphs";
+import CreateProduct from "../Dashboard/CreateProduct";
 
 function Main() {
   return (
@@ -16,6 +17,7 @@ function Main() {
             <Navbar />
             <Switch>
               <Route exact path="/" component={Dashboard} />
+              <Route exact path="/create-product" component={CreateProduct} />
               <Route exact path="/orders" component={Orders} />
               <Route exact path="/graphs" component={Graphs} />
               <Route component={NoMatch} />
