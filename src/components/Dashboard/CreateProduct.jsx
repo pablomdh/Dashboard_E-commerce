@@ -18,18 +18,11 @@ const CreateProduct = () => {
 
   const handleCreate = async (ev) => {
     ev.preventDefault();
+    const data = new FormData(ev.target);
     const response = await axios({
       method: "post",
       url: `http://localhost:3000/products`,
-      data: {
-        name: name,
-        description: description,
-        photo: photo,
-        stock: stock,
-        bestproduct: bestProduct,
-        slug: slugify(name.toLowerCase(), { replacement: "-" }),
-        price: price,
-      },
+      data,
       headers: {
         "Content-Type": "multipart/form-data",
         // Authorization: `Bearer ${user.token}`
@@ -58,97 +51,8 @@ const CreateProduct = () => {
       <div className="container">
         <main className="bg-light">
           <h1>Ingresa Productos</h1>
-          <table className="table">
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Destacados</th>
-              <th>Stock</th>
-              <th>Precio</th>
-              <th>Foto</th>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  className="input"
-                  type="text"
-                  name="name"
-                  id={`${name}name`}
-                  // key={`${name}name`}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  className="input"
-                  type="text"
-                  name="description"
-                  id={`${name}description`}
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  className="input"
-                  type="checkbox"
-                  name="bestproduct"
-                  id={`${name}bestproduct`}
-                  value={bestProduct}
-                  checked={bestProduct}
-                  onChange={(e) => setBestProduct(!bestProduct)}
-                />
-              </td>
-              <td>
-                <input
-                  className="input"
-                  type="text"
-                  name="stock"
-                  id={`${name}stock`}
-                  value={stock}
-                  onChange={(e) => setStock(e.target.value)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  className="input"
-                  type="text"
-                  name="price"
-                  id={`${name}price`}
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  className="input"
-                  type="text"
-                  name="photo"
-                  id={`${name}photo`}
-                  value={photo}
-                  onChange={(e) => setPhoto(e.target.value)}
-                  required
-                />
-              </td>
-            </tr>
-          </table>
-          <div className="d-flex justify-content-center">
-            <button
-              className="btn btn-success my-4"
-              onClick={(ev) => {
-                handleCreate(ev);
-              }}
-            >
-              Crear Producto
-            </button>
-          </div>
+
           <form
-            encType="multipart/form-data"
             class="row g-3 mt-3"
             onSubmit={(ev) => {
               handleCreate(ev);
@@ -169,7 +73,7 @@ const CreateProduct = () => {
                     className="input"
                     type="text"
                     name="name"
-                    id={`${name}name`}
+                    id="name"
                     // key={`${name}name`}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -180,7 +84,7 @@ const CreateProduct = () => {
                     className="input"
                     type="text"
                     name="description"
-                    id={`${name}description`}
+                    id="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
@@ -190,7 +94,7 @@ const CreateProduct = () => {
                     className="input"
                     type="checkbox"
                     name="bestproduct"
-                    id={`${name}bestproduct`}
+                    id="bestproduct"
                     value={bestProduct}
                     checked={bestProduct}
                     onChange={(e) => setBestProduct(!bestProduct)}
@@ -201,7 +105,7 @@ const CreateProduct = () => {
                     className="input"
                     type="text"
                     name="stock"
-                    id={`${name}stock`}
+                    id="stock"
                     value={stock}
                     onChange={(e) => setStock(e.target.value)}
                   />
@@ -211,7 +115,7 @@ const CreateProduct = () => {
                     className="input"
                     type="text"
                     name="price"
-                    id={`${name}price`}
+                    id="price"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
@@ -221,7 +125,7 @@ const CreateProduct = () => {
                     className="form-control form-control-sm border-0"
                     type="file"
                     name="photo"
-                    id={`${name}photo`}
+                    id="photo"
                     value={photo}
                     onChange={(e) => setPhoto(e.target.value)}
                   />
@@ -245,7 +149,6 @@ const CreateProduct = () => {
         draggable
         pauseOnHover
       />
-      <ToastContainer />
     </>
   );
 };
