@@ -47,7 +47,7 @@ function PageLogIn() {
           <button type="submit" className="btn btn-dark mt-3">
             Ingresar
           </button>
-          <a className="text-dark mb-3 mt-2" href="">
+          <a className="text-dark mb-3 mt-2" href="...">
             Olivde mi contraseña.
           </a>
         </form>
