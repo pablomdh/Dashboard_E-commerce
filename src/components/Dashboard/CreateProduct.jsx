@@ -1,16 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import slugify from "slugify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateProduct = () => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
+  const notify = () => toast("Wow so easy!");
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [bestProduct, setBestProduct] = useState("");
-  const [stock, setStock] = useState("");
-  const [price, setPrice] = useState("");
+  const [bestProduct, setBestProduct] = useState(false);
+  const [stock, setStock] = useState(0);
+  const [price, setPrice] = useState(0);
   const [photo, setPhoto] = useState("");
 
   const handleCreate = async (ev) => {
@@ -33,10 +36,19 @@ const CreateProduct = () => {
 
     setName("");
     setDescription("");
-    setBestProduct("");
-    setStock("");
-    setPrice("");
+    setBestProduct(false);
+    setStock(0);
+    setPrice(0);
     setPhoto("");
+    toast("🦄 El producto fue creado correctamente!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -46,7 +58,7 @@ const CreateProduct = () => {
           <h1>Ingresa Productos</h1>
           <table className="table">
             <tr>
-              <th>name</th>
+              <th>Nombre</th>
               <th>Descripción</th>
               <th>Destacados</th>
               <th>Stock</th>
@@ -63,6 +75,7 @@ const CreateProduct = () => {
                   // key={`${name}name`}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </td>
               <td>
@@ -73,6 +86,7 @@ const CreateProduct = () => {
                   id={`${name}description`}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  required
                 />
               </td>
               <td>
@@ -94,6 +108,7 @@ const CreateProduct = () => {
                   id={`${name}stock`}
                   value={stock}
                   onChange={(e) => setStock(e.target.value)}
+                  required
                 />
               </td>
               <td>
@@ -104,6 +119,7 @@ const CreateProduct = () => {
                   id={`${name}price`}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
+                  required
                 />
               </td>
               <td>
@@ -114,6 +130,7 @@ const CreateProduct = () => {
                   id={`${name}photo`}
                   value={photo}
                   onChange={(e) => setPhoto(e.target.value)}
+                  required
                 />
               </td>
             </tr>
@@ -130,6 +147,18 @@ const CreateProduct = () => {
           </div>
         </main>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <ToastContainer />
     </>
   );
 };
