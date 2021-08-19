@@ -17,6 +17,7 @@ const CreateProduct = () => {
   const [photo, setPhoto] = useState("");
 
   const handleCreate = async (ev) => {
+    ev.preventDefault();
     const response = await axios({
       method: "post",
       url: `http://localhost:3000/products`,
@@ -29,9 +30,10 @@ const CreateProduct = () => {
         slug: slugify(name.toLowerCase(), { replacement: "-" }),
         price: price,
       },
-      // headers:{
-      //   Authorization: `Bearer ${user.token}`
-      // }
+      headers: {
+        "Content-Type": "multipart/form-data",
+        // Authorization: `Bearer ${user.token}`
+      },
     });
 
     setName("");
@@ -145,6 +147,91 @@ const CreateProduct = () => {
               Crear Producto
             </button>
           </div>
+          <form
+            encType="multipart/form-data"
+            class="row g-3 mt-3"
+            onSubmit={(ev) => {
+              handleCreate(ev);
+            }}
+          >
+            <table className="table">
+              <tr>
+                <th>name</th>
+                <th>Descripción</th>
+                <th>Destacados</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Foto</th>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    id={`${name}name`}
+                    // key={`${name}name`}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input
+                    className="input"
+                    type="text"
+                    name="description"
+                    id={`${name}description`}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input
+                    className="input"
+                    type="checkbox"
+                    name="bestproduct"
+                    id={`${name}bestproduct`}
+                    value={bestProduct}
+                    checked={bestProduct}
+                    onChange={(e) => setBestProduct(!bestProduct)}
+                  />
+                </td>
+                <td>
+                  <input
+                    className="input"
+                    type="text"
+                    name="stock"
+                    id={`${name}stock`}
+                    value={stock}
+                    onChange={(e) => setStock(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input
+                    className="input"
+                    type="text"
+                    name="price"
+                    id={`${name}price`}
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input
+                    className="form-control form-control-sm border-0"
+                    type="file"
+                    name="photo"
+                    id={`${name}photo`}
+                    value={photo}
+                    onChange={(e) => setPhoto(e.target.value)}
+                  />
+                </td>
+              </tr>
+            </table>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-success my-4">Crear Producto</button>
+            </div>
+          </form>
         </main>
       </div>
       <ToastContainer

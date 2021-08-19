@@ -11,7 +11,13 @@ function Product({ product }) {
 
   return (
     <>
+      <form
+        method="POST"
+        class="row g-3 mt-3"
+        enctype="multipart/form-data"
+      ></form>
       <tr>
+        td
         <td>
           <input
             className="input"
