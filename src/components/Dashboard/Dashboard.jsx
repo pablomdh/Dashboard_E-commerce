@@ -38,7 +38,7 @@ function Dashboard() {
             <th>Stock</th>
             <th>Precio</th>
             <th>Foto</th>
-            <th>Eliminar</th>
+            <th>Acciones</th>
           </tr>
           {products.map((product) => (
             <Product product={product} />

@@ -11,13 +11,8 @@ function Product({ product }) {
 
   return (
     <>
-      <form
-        method="POST"
-        class="row g-3 mt-3"
-        enctype="multipart/form-data"
-      ></form>
+      <form method="POST" class="row g-3 mt-3" enctype="multipart/form-data"></form>
       <tr>
-        td
         <td>
           <input
             className="input"
@@ -82,6 +77,7 @@ function Product({ product }) {
         </td>
         <td>
           <p>
+            Modificar
             <BsTrash />
           </p>
         </td>
