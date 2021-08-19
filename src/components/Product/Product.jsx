@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 
-function Product() {
-  const [item, setItem] = useState("Championes");
-  const [description, setDescription] = useState("Adidas Negros");
-  const [bestProduct, setBestProduct] = useState(true);
-  const [stock, setStock] = useState(10);
-  const [price, setPrice] = useState(100);
-  const [photo, setPhoto] = useState("championes.jpg");
+function Product({ product }) {
+  const [item, setItem] = useState(product.name);
+  const [description, setDescription] = useState(product.description);
+  const [bestProduct, setBestProduct] = useState(product.bestProduct);
+  const [stock, setStock] = useState(product.stock);
+  const [price, setPrice] = useState(product.price);
+  const [photo, setPhoto] = useState(product.photo);
 
   return (
     <>
@@ -18,6 +18,7 @@ function Product() {
             type="text"
             name="item"
             id={`${item}name`}
+            key={`${item}name`}
             value={item}
             onChange={(e) => setItem(e.target.value)}
           />

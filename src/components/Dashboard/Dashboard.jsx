@@ -1,7 +1,29 @@
-import React from "react";
+import { useEffect } from "react";
 import Product from "../Product/Product";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
 function Dashboard() {
+  const products = useSelector((state) => state.products);
+  console.log(products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function getProducts() {
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:3000/products`,
+      });
+      console.log(response.data);
+      dispatch({
+        type: "GET_PRODUCTS",
+        payload: response.data,
+      });
+    }
+    getProducts();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="container">
       <main className="bg-light">
@@ -16,8 +38,9 @@ function Dashboard() {
             <th>Foto</th>
             <th>Eliminar</th>
           </tr>
-          {/* map de productos rendering el componente */}
-          <Product />
+          {products.map((product) => (
+            <Product product={product} />
+          ))}
         </table>
         <div className="d-flex justify-content-center">
           <button className="btn btn-warning my-4">Guardar Cambios</button>
