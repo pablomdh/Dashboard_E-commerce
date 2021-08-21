@@ -27,7 +27,6 @@ function Dashboard() {
 
   return (
     <div className="container">
-      <Link to="/create-product"> Crear producto </Link>
       <main className="bg-light">
         <h1>Productos</h1>
         <table className="table">
@@ -45,7 +44,9 @@ function Dashboard() {
           ))}
         </table>
         <div className="d-flex justify-content-center">
-          <button className="btn btn-warning my-4">Guardar Cambios</button>
+          <Link to="/create-product" className="btn btn-success">
+            Nuevo producto
+          </Link>
         </div>
       </main>
     </div>
