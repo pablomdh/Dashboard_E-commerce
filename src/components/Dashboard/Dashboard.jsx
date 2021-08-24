@@ -38,9 +38,8 @@ function Dashboard() {
             <th>Acciones</th>
           </tr>
           <tbody className="p-0">
-            {products.map((product) => (
-              <Product product={product} />
-            ))}
+            {products &&
+              products.map((product) => <Product product={product} />)}
           </tbody>
         </table>
       </div>

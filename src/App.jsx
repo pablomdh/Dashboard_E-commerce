@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Orders from "./components/Orders/Orders";
 import Graphs from "./components/Graphs/Graphs";
 import CreateProduct from "./components/Dashboard/CreateProduct";
+import DashboardCards from "./components/DashboardCards/DashboardCards";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App d-flex flex-column h-100">
       <Router>
         <Navbar />
+        <DashboardCards />
         <div>
           <Switch>
             <Route exact path="/registro" component={PageSignUp} />
