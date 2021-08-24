@@ -6,9 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateProduct = () => {
-  // const user = useSelector((state) => state.user);
-  const notify = () => toast("Wow so easy!");
-
+  // const user = useSelector((state) => state.user)
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [bestProduct, setBestProduct] = useState(false);
@@ -19,7 +17,7 @@ const CreateProduct = () => {
   const handleCreate = async (ev) => {
     ev.preventDefault();
     const data = new FormData(ev.target);
-    const response = await axios({
+    await axios({
       method: "post",
       url: `http://localhost:3000/products`,
       data,

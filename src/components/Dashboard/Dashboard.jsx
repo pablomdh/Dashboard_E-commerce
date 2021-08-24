@@ -40,7 +40,7 @@ function Dashboard() {
             <th>Acciones</th>
           </tr>
           {products.map((product) => (
-            <Product product={product} />
+            <Product key={product.name} product={product} />
           ))}
         </table>
         <div className="d-flex justify-content-center">
