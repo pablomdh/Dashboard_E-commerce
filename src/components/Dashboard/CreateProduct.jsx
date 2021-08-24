@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import slugify from "slugify";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createClient } from "@supabase/supabase-js";
 
 const CreateProduct = () => {
-  // const user = useSelector((state) => state.user)
+  const accessKey = useSelector((state) => state.accessKey);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [bestProduct, setBestProduct] = useState(false);
@@ -15,16 +16,32 @@ const CreateProduct = () => {
   const [price, setPrice] = useState(0);
   const [photo, setPhoto] = useState("");
 
+  async function uploadFunction(ev) {
+    const supabase = createClient(
+      "https://unyvfpzstnadbdhkxhbb.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjI5NzI2ODc3LCJleHAiOjE5NDUzMDI4Nzd9.OVxPQwXN-5qMGGCT8Pk49MuPEflhzb83MYejJppCbag"
+    );
+    const imagen = ev.target.files[0];
+    const { data, error } = await supabase.storage
+      .from("papos.photos")
+      .upload(`images/${imagen.name}`, imagen, {
+        cacheControl: "3600",
+        upsert: false,
+      });
+    console.log(data);
+    console.log(error);
+  }
+
   const handleCreate = async (ev) => {
     ev.preventDefault();
+    console.log(ev.target);
     const data = new FormData(ev.target);
     await axios({
       method: "post",
       url: `http://localhost:3000/products`,
       data,
       headers: {
-        "Content-Type": "multipart/form-data",
-        // Authorization: `Bearer ${user.token}`
+        Authorization: `Bearer ${accessKey.accesToken}`,
       },
     });
 
@@ -33,7 +50,6 @@ const CreateProduct = () => {
     setBestProduct(false);
     setStock(0);
     setPrice(0);
-    setPhoto("");
     toast("🦄 El producto fue creado correctamente!", {
       position: "top-right",
       autoClose: 5000,
