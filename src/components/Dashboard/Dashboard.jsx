@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 function Dashboard() {
   const products = useSelector((state) => state.products);
-  console.log(products);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +14,6 @@ function Dashboard() {
         method: "get",
         url: `http://localhost:3000/products`,
       });
-      console.log(response.data);
       dispatch({
         type: "GET_PRODUCTS",
         payload: response.data,

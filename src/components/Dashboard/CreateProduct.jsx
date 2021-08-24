@@ -1,19 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import slugify from "slugify";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateProduct = () => {
-  // const user = useSelector((state) => state.user)
+  const accessKey = useSelector((state) => state.accessKey);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [bestProduct, setBestProduct] = useState(false);
   const [stock, setStock] = useState(0);
   const [price, setPrice] = useState(0);
   const [photo, setPhoto] = useState("");
-
   const handleCreate = async (ev) => {
     ev.preventDefault();
     const data = new FormData(ev.target);
@@ -23,7 +22,7 @@ const CreateProduct = () => {
       data,
       headers: {
         "Content-Type": "multipart/form-data",
-        // Authorization: `Bearer ${user.token}`
+        Authorization: `Bearer ${accessKey.accesToken}`,
       },
     });
 
