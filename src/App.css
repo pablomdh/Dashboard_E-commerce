@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@250&display=swap");
+
+body {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+}
 .nomatch {
   height: 20rem;
 }

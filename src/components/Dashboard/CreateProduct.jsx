@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 // import { useSelector } from "react-redux";
 import slugify from "slugify";
@@ -46,95 +47,106 @@ const CreateProduct = () => {
 
   return (
     <>
-      <div className="container">
-        <main className="bg-light">
-          <h1>Ingresa Productos</h1>
+      <div className="container p-4">
+        <h1 className="mb-4">Ingresa Productos</h1>
 
+        {/* new form  */}
+        <div className="container w-80">
           <form
-            class="row g-3 mt-3"
             onSubmit={(ev) => {
               handleCreate(ev);
             }}
           >
-            <table className="table">
-              <tr>
-                <th>name</th>
-                <th>Descripción</th>
-                <th>Destacados</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Foto</th>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    className="input"
-                    type="text"
-                    name="name"
-                    id="name"
-                    // key={`${name}name`}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    className="input"
-                    type="text"
-                    name="description"
-                    id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    className="input"
-                    type="checkbox"
-                    name="bestproduct"
-                    id="bestproduct"
-                    value={bestProduct}
-                    checked={bestProduct}
-                    onChange={(e) => setBestProduct(!bestProduct)}
-                  />
-                </td>
-                <td>
-                  <input
-                    className="input"
-                    type="text"
-                    name="stock"
-                    id="stock"
-                    value={stock}
-                    onChange={(e) => setStock(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    className="input"
-                    type="text"
-                    name="price"
-                    id="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    className="form-control form-control-sm border-0"
-                    type="file"
-                    name="photo"
-                    id="photo"
-                    value={photo}
-                    onChange={(e) => setPhoto(e.target.value)}
-                  />
-                </td>
-              </tr>
-            </table>
-            <div className="d-flex justify-content-center">
-              <button className="btn btn-success my-4">Crear Producto</button>
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">
+                Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                id="name"
+                // key={`${name}name`}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">
+                Descripcion
+              </label>
+              <textarea
+                type="text"
+                className="form-control"
+                name="description"
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="mb-3 form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                name="bestproduct"
+                id="bestproduct"
+                value={bestProduct}
+                checked={bestProduct}
+                onChange={(e) => setBestProduct(!bestProduct)}
+              />
+              <label className="form-check-label" htmlFor="bestproduct">
+                Destacado
+              </label>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="stock" className="form-label">
+                Stock
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                name="stock"
+                id="stock"
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="price" className="form-label">
+                Precio
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                name="price"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="photo" className="form-label">
+                Foto
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                name="photo"
+                id="photo"
+                value={photo}
+                onChange={(e) => setPhoto(e.target.value)}
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" className="form-text">
+                Elige tu foto en formato (500x500)
+              </div>
+            </div>
+
+            <button type="submit" className="btn btn-success">
+              Crear producto
+            </button>
           </form>
-        </main>
+        </div>
       </div>
       <ToastContainer
         position="top-right"

@@ -26,11 +26,11 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="container">
-      <main className="bg-light">
-        <h1>Productos</h1>
-        <table className="table">
-          <tr>
+    <>
+      <div className="container p-4">
+        <h1 className="mb-4">Productos</h1>
+        <table className="table table-hover  table-striped border-1 ">
+          <tr className="fs-5">
             <th>Item</th>
             <th>Descripción</th>
             <th>Destacados</th>
@@ -39,17 +39,14 @@ function Dashboard() {
             <th>Foto</th>
             <th>Acciones</th>
           </tr>
-          {products.map((product) => (
-            <Product key={product.name} product={product} />
-          ))}
+          <tbody className="p-0">
+            {products.map((product) => (
+              <Product product={product} />
+            ))}
+          </tbody>
         </table>
-        <div className="d-flex justify-content-center">
-          <Link to="/create-product" className="btn btn-success">
-            Nuevo producto
-          </Link>
-        </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
 

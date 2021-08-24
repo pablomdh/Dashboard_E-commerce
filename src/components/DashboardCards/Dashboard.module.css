@@ -1,0 +1,73 @@
+.cardMenuDashboard {
+  transition: 0.3s;
+  /* width: 15rem; */
+  height: 8rem;
+  background: #a70011;
+  background: linear-gradient(
+    142deg,
+    #a70011 0%,
+    #a70011f0 36%,
+    #a70011c6 79%,
+    #a70011b6 100%
+  ) !important;
+  background-image: url();
+  color: whitesmoke;
+}
+.cardMenuDashboard:hover {
+  transform: translate(0px, 3px);
+}
+
+.cardMenuAdd {
+  transition: 0.3s;
+  /* width: 15rem; */
+  height: 8rem;
+  background: rgb(51, 140, 35);
+  background: linear-gradient(
+    142deg,
+    rgba(51, 140, 35, 1) 0%,
+    rgba(34, 128, 17, 0.9402135854341737) 36%,
+    rgba(60, 148, 45, 0.8477766106442577) 79%,
+    rgba(60, 148, 45, 0.7665441176470589) 100%
+  ) !important;
+  background-image: url();
+  color: whitesmoke;
+}
+.cardMenuAdd:hover {
+  transform: translate(0px, 3px);
+}
+.cardMenuOrders {
+  transition: 0.3s;
+  /* width: 15rem; */
+  height: 8rem;
+  background: #3596cf;
+  background: linear-gradient(
+    142deg,
+    #3596cf 0%,
+    #3596cf 36%,
+    #3597cfd7 79%,
+    #3597cfc4 100%
+  ) !important;
+  background-image: url();
+  color: whitesmoke;
+}
+.cardMenuOrders:hover {
+  transform: translate(0px, 3px);
+}
+.cardMenuGraph {
+  transition: 0.3s;
+  /* width: 15rem; */
+  height: 8rem;
+  background: #ab60b6f5;
+  background: linear-gradient(
+    142deg,
+    #ab60b6 0%,
+    #ab60b6 36%,
+    #ab60b6d7 79%,
+    #ab60b6db 100%
+  ) !important;
+  background-image: url();
+  color: whitesmoke;
+}
+.cardMenuGraph:hover {
+  transform: translate(0px, 3px);
+}
