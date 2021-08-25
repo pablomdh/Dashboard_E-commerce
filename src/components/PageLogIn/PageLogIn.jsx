@@ -12,7 +12,7 @@ function PageLogIn() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post(`http://localhost:3000/admin/login`, {
+      .post(`http://localhost:3000/token`, {
         email,
         password,
       })

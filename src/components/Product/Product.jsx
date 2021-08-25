@@ -7,7 +7,7 @@ function Product({ product, setProducts, products }) {
 
   const [item, setItem] = useState(product.name);
   const [description, setDescription] = useState(product.description);
-  const [bestProduct, setBestProduct] = useState(product.bestProduct);
+  const [bestProduct, setBestProduct] = useState(product.bestproduct);
   const [stock, setStock] = useState(product.stock);
   const [price, setPrice] = useState(product.price);
   const [photo, setPhoto] = useState(product.photo);
