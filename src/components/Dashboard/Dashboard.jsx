@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Product from "../Product/Product";
-import axios from "axios";  
+import axios from "axios";
 import { useState } from "react";
 
 function Dashboard() {

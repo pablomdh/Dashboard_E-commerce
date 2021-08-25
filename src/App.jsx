@@ -12,6 +12,9 @@ import Graphs from "./components/Graphs/Graphs";
 import CreateProduct from "./components/Dashboard/CreateProduct";
 import DashboardCards from "./components/DashboardCards/DashboardCards";
 
+import "./App.css";
+import PageUsers from "./components/Users/PageUsers";
+
 function App() {
   return (
     <div className="App d-flex flex-column h-100">
@@ -26,6 +29,7 @@ function App() {
             <Route exact path="/create-product" component={CreateProduct} />
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/graphs" component={Graphs} />
+            <Route exact path="/users" component={PageUsers} />
             <Route component={NoMatch} />
           </Switch>
         </div>
