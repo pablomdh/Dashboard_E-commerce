@@ -12,8 +12,6 @@ import Graphs from "./components/Graphs/Graphs";
 import CreateProduct from "./components/Dashboard/CreateProduct";
 import DashboardCards from "./components/DashboardCards/DashboardCards";
 
-import "./App.css";
-
 function App() {
   return (
     <div className="App d-flex flex-column h-100">
