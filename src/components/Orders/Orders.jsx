@@ -1,7 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Order from "../Order/Order";
 
 function Orders() {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    async function getOrders() {
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:3000/orders`,
+      });
+      setOrders(response.data);
+    }
+    getOrders();
+    // eslint-disable-next-line
+  }, []);
   return (
     <div className="container p-4">
       <h1 className="mb-4">Órdenes</h1>
@@ -15,8 +29,7 @@ function Orders() {
           <th>Eliminar</th>
         </tr>
         <tbody className="p-0">
-          {/* map de productos rendering el componente */}
-          <Order />
+          {orders && orders.map((order) => <Order order={order} />)}
         </tbody>
       </table>
       <div className="d-flex justify-content-center">
