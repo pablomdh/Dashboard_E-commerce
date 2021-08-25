@@ -10,7 +10,7 @@
     #a70011c6 79%,
     #a70011b6 100%
   ) !important;
-  background-image: url();
+ 
   color: whitesmoke;
 }
 .cardMenuDashboard:hover {
@@ -29,7 +29,7 @@
     rgba(60, 148, 45, 0.8477766106442577) 79%,
     rgba(60, 148, 45, 0.7665441176470589) 100%
   ) !important;
-  background-image: url();
+ 
   color: whitesmoke;
 }
 .cardMenuAdd:hover {
@@ -47,7 +47,7 @@
     #3597cfd7 79%,
     #3597cfc4 100%
   ) !important;
-  background-image: url();
+ 
   color: whitesmoke;
 }
 .cardMenuOrders:hover {
@@ -65,7 +65,7 @@
     #ab60b6d7 79%,
     #ab60b6db 100%
   ) !important;
-  background-image: url();
+ 
   color: whitesmoke;
 }
 .cardMenuGraph:hover {

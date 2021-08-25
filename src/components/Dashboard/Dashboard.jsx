@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import Product from "../Product/Product";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import axios from "axios";  
+import { useState } from "react";
 
 function Dashboard() {
-  const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function getProducts() {
@@ -14,10 +12,7 @@ function Dashboard() {
         method: "get",
         url: `http://localhost:3000/products`,
       });
-      dispatch({
-        type: "GET_PRODUCTS",
-        payload: response.data,
-      });
+      setProducts(response.data);
     }
     getProducts();
     // eslint-disable-next-line
@@ -28,18 +23,25 @@ function Dashboard() {
       <div className="container p-4">
         <h1 className="mb-4">Productos</h1>
         <table className="table table-hover  table-striped border-1 ">
-          <tr className="fs-5">
-            <th>Item</th>
-            <th>Descripción</th>
-            <th>Destacados</th>
-            <th>Stock</th>
-            <th>Precio</th>
-            <th>Foto</th>
-            <th>Acciones</th>
-          </tr>
+          <thead className="fs-5">
+            <td>Item</td>
+            <td>Descripción</td>
+            <td>Destacados</td>
+            <td>Stock</td>
+            <td>Precio</td>
+            <td>Foto</td>
+            <td>Acciones</td>
+          </thead>
           <tbody className="p-0">
             {products &&
-              products.map((product) => <Product product={product} />)}
+              products.map((product) => (
+                <Product
+                  product={product}
+                  setProducts={setProducts}
+                  products={products}
+                  key={product.id}
+                />
+              ))}
           </tbody>
         </table>
       </div>

@@ -17,6 +17,7 @@ function PageLogIn() {
         password,
       })
       .then((response) => {
+     
         dispatch({ type: "LOGIN", payload: response.data });
         history.push("/");
       })

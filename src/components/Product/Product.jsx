@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-function Product({ product }) {
-  const dispatch = useDispatch();
+function Product({ product, setProducts, products }) {
   const accessKey = useSelector((state) => state.accessKey);
 
   const [item, setItem] = useState(product.name);
@@ -20,12 +19,10 @@ function Product({ product }) {
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
       .then(() => {
-        dispatch({
-          type: "DELETE_PRODUCT",
-          payload: id,
-        });
-      })
+        const newProducts = products.filter((item) => item.id !== id);
 
+        setProducts(newProducts);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -106,12 +103,12 @@ function Product({ product }) {
               width="25"
               height="25"
               fill="currentColor"
-              class="bi bi-pencil-square"
+              className="bi bi-pencil-square"
               viewBox="0 0 16 16"
             >
               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
               />
             </svg>
@@ -125,7 +122,7 @@ function Product({ product }) {
                 width="25"
                 height="25"
                 fill="currentColor"
-                class="bi bi-x-circle"
+                className="bi bi-x-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
