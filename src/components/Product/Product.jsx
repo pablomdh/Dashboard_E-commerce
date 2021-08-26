@@ -162,7 +162,14 @@ const Product = () => {
               <label htmlFor="category" className="form-label">
                 Categoría
               </label>
-              <select name="category" id="category">
+              <select
+                name="categoryId"
+                id="categoryId"
+                value={categoryId}
+                onChange={(e) => {
+                  setCategoryId(e.target.value);
+                }}
+              >
                 {categories.map((category) => (
                   <option
                     value={category.id}
