@@ -14,6 +14,7 @@ const CreateProduct = ({}) => {
   const [stock, setStock] = useState(0);
   const [price, setPrice] = useState(0);
   const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState(0);
   const [photo, setPhoto] = useState("");
 
   useEffect(() => {
@@ -144,7 +145,14 @@ const CreateProduct = ({}) => {
               <label htmlFor="category" className="form-label">
                 Categoría
               </label>
-              <select name="category" id="category">
+              <select
+                name="categoryId"
+                id="categoryId"
+                value={categoryId}
+                onChange={(e) => {
+                  setCategoryId(e.target.value);
+                }}
+              >
                 {categories.map((category) => (
                   <option value={category.id}>{category.name}</option>
                 ))}

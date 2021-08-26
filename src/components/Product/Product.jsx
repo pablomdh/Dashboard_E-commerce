@@ -21,7 +21,7 @@ const Product = () => {
   const [photo, setPhoto] = useState("");
 
   const [categories, setCategories] = useState([]);
-  const [categoryId, setCategoryId] = useState("");
+  const [categoryId, setCategoryId] = useState(0);
 
   useEffect(() => {
     const getProduct = () => {
