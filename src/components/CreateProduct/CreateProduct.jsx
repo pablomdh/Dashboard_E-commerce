@@ -32,6 +32,7 @@ const CreateProduct = ({}) => {
   const handleCreate = async (ev) => {
     ev.preventDefault();
     const data = new FormData(ev.target);
+
     await axios({
       method: "post",
       url: `http://localhost:3000/products`,
@@ -154,7 +155,9 @@ const CreateProduct = ({}) => {
                 }}
               >
                 {categories.map((category) => (
-                  <option value={category.id}>{category.name}</option>
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
                 ))}
               </select>
             </div>
