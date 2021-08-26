@@ -1,139 +1,193 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-function Product({ product, setProducts, products }) {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import styles from "./Product.module.css";
+
+const Product = () => {
+  const { slug } = useParams();
   const accessKey = useSelector((state) => state.accessKey);
+  const [id, setId] = useState(0);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [bestProduct, setBestProduct] = useState(false);
+  const [stock, setStock] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [photo, setPhoto] = useState("");
 
-  const [item, setItem] = useState(product.name);
-  const [description, setDescription] = useState(product.description);
-  const [bestProduct, setBestProduct] = useState(product.bestproduct);
-  const [stock, setStock] = useState(product.stock);
-  const [price, setPrice] = useState(product.price);
-  const [photo, setPhoto] = useState(product.photo);
+  useEffect(() => {
+    const getProduct = () => {
+      axios
+        .get(`${process.env.REACT_APP_API}products/${slug}`)
+        .then((response) => {
+          setId(response.data.id);
+          setName(response.data.name);
+          setDescription(response.data.description);
+          setBestProduct(response.data.bestproduct);
+          setStock(response.data.stock);
+          setPrice(response.data.price);
+          setPhoto(response.data.photo);
+        })
+        .catch((err) => console.log(err));
+    };
+    getProduct();
+  }, []);
 
-  const handleDestroy = (id) => {
-    axios
-      .delete(`http://localhost:3000/products`, {
-        data: { id },
-        headers: { Authorization: `Bearer ${accessKey.accesToken}` },
-      })
-      .then(() => {
-        const newProducts = products.filter((item) => item.id !== id);
-
-        setProducts(newProducts);
-      })
-      .catch((err) => console.log(err));
+  const handleUpdate = async (ev) => {
+    ev.preventDefault();
+    const data = new FormData(ev.target);
+    await axios({
+      method: "patch",
+      url: `http://localhost:3000/products`,
+      data,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${accessKey.accesToken}`,
+      },
+    });
+    toast("🦄 El producto fue actualizado correctamente!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
     <>
-      <tr>
-        <td>
-          <div className="input-group ">
-            <input
-              className=" form-control border-0 p-2"
-              type="text"
-              name="item"
-              value={item}
-              onChange={(e) => setItem(e.target.value)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="input-group ">
-            <input
-              className="form-control border-0 p-2"
-              type="text"
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="input-group ">
-            <input
-              className="input-group form-check-input p-3 border-0"
-              type="checkbox"
-              name="bestproduct"
-              value={bestProduct}
-              checked={bestProduct}
-              onChange={(e) => setBestProduct(!bestProduct)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="input-group ">
-            <input
-              className=" form-control border-0 p-2"
-              type="text"
-              name="stock"
-              value={stock}
-              onChange={(e) => setStock(e.target.value)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="input-group">
-            <input
-              className=" form-control border-0 p-2 "
-              type="text"
-              name="price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="input-group ">
-            <input
-              className=" form-control border-0 p-2"
-              type="text"
-              name="photo"
-              value={photo}
-              onChange={(e) => setPhoto(e.target.value)}
-            />
-          </div>
-        </td>
-        <td>
-          <div className="d-flex justify-content-between">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              className="bi bi-pencil-square"
-              viewBox="0 0 16 16"
-            >
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-              <path
-                fillRule="evenodd"
-                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+      <div className="container p-4">
+        <h1 className="mb-4">Ingresa Productos</h1>
+        <div className="container w-80">
+          <form
+            onSubmit={(ev) => {
+              handleUpdate(ev);
+            }}
+          >
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">
+                Name
+              </label>
+              <input name="id" value={id} hidden />
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
-            </svg>
-            <span
-              onClick={() => {
-                handleDestroy(product.id);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                fill="currentColor"
-                className="bi bi-x-circle"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-              </svg>
-            </span>
-          </div>
-        </td>
-      </tr>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">
+                Descripcion
+              </label>
+              <textarea
+                type="text"
+                className="form-control"
+                name="description"
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              ></textarea>
+            </div>
+            <div className="mb-3 form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                name="bestproduct"
+                id="bestproduct"
+                value={bestProduct}
+                checked={bestProduct}
+                onChange={(e) => setBestProduct(!bestProduct)}
+                required
+              />
+              <label className="form-check-label" htmlFor="bestproduct">
+                Destacado
+              </label>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="stock" className="form-label">
+                Stock
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                name="stock"
+                id="stock"
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="price" className="form-label">
+                Precio
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                name="price"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="photo" className="form-label">
+                Foto
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                name="photo"
+                id="photo"
+                aria-describedby="emailHelp"
+              />
+              <img
+                className={styles.cartImg}
+                src={`${process.env.REACT_APP_SUPABASE_BUCKET}${photo}`}
+                alt={name}
+                value={photo}
+                onChange={(e) => setPhoto(e.target.value)}
+              />
+              <div id="emailHelp" className="form-text">
+                Elige tu foto en formato (500x500)
+              </div>
+            </div>
+
+            <button type="submit" className="btn btn-success">
+              Guardar cambios
+            </button>
+            <Link to="/" className="btn btn-warning">
+              Volver
+            </Link>
+          </form>
+        </div>
+      </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
-}
+};
 
 export default Product;

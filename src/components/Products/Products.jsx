@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import Product from "../Product/Product";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ProductTable from "../ProductTable/ProductTable";
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -29,19 +28,17 @@ function Dashboard() {
             <td>Destacados</td>
             <td>Stock</td>
             <td>Precio</td>
-            <td>Foto</td>
             <td>Acciones</td>
           </thead>
           <tbody className="p-0">
-            {products &&
-              products.map((product) => (
-                <Product
-                  product={product}
-                  setProducts={setProducts}
-                  products={products}
-                  key={product.id}
-                />
-              ))}
+            {products.map((product) => (
+              <ProductTable
+                key={product.id}
+                product={product}
+                setProducts={setProducts}
+                products={products}
+              />
+            ))}
           </tbody>
         </table>
       </div>

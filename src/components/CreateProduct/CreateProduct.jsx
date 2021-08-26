@@ -5,9 +5,8 @@ import { useSelector } from "react-redux";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createClient } from "@supabase/supabase-js";
 
-const CreateProduct = () => {
+const CreateProduct = ({}) => {
   const accessKey = useSelector((state) => state.accessKey);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -67,9 +66,9 @@ const CreateProduct = () => {
                 className="form-control"
                 name="name"
                 id="name"
-                // key={`${name}name`}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -83,6 +82,7 @@ const CreateProduct = () => {
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                required
               ></textarea>
             </div>
             <div className="mb-3 form-check">
@@ -94,6 +94,7 @@ const CreateProduct = () => {
                 value={bestProduct}
                 checked={bestProduct}
                 onChange={(e) => setBestProduct(!bestProduct)}
+                required
               />
               <label className="form-check-label" htmlFor="bestproduct">
                 Destacado
@@ -110,6 +111,7 @@ const CreateProduct = () => {
                 id="stock"
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -123,6 +125,7 @@ const CreateProduct = () => {
                 id="price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -137,6 +140,7 @@ const CreateProduct = () => {
                 value={photo}
                 onChange={(e) => setPhoto(e.target.value)}
                 aria-describedby="emailHelp"
+                required
               />
               <div id="emailHelp" className="form-text">
                 Elige tu foto en formato (500x500)

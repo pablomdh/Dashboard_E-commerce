@@ -6,11 +6,12 @@ import PageSignUp from "./components/PageSignUp/PageSignUp";
 import Navbar from "./components/Navbar/Navbar";
 import NoMatch from "./components/NoMatch/NoMatch";
 // import Footer from "./components/subComponents/Footer/Footer";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./components/Products/Products";
 import Orders from "./components/Orders/Orders";
 import Graphs from "./components/Graphs/Graphs";
-import CreateProduct from "./components/Dashboard/CreateProduct";
+import CreateProduct from "./components/CreateProduct/CreateProduct";
 import DashboardCards from "./components/DashboardCards/DashboardCards";
+import Product from "./components/Product/Product";
 
 import "./App.css";
 import PageUsers from "./components/Users/PageUsers";
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/graphs" component={Graphs} />
             <Route exact path="/users" component={PageUsers} />
+            <Route exact path="/:slug" component={Product} />
             <Route component={NoMatch} />
           </Switch>
         </div>
