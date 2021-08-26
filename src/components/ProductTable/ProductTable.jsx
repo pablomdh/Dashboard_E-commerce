@@ -30,11 +30,9 @@ function ProductTable({ product, setProducts, products }) {
       url: `http://localhost:3000/products/bestproduct`,
       data,
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${accessKey.accesToken}`,
       },
     });
-    console.log("pasa");
     toast("🦄 El producto fue actualizado correctamente!", {
       position: "top-right",
       autoClose: 5000,
@@ -65,9 +63,8 @@ function ProductTable({ product, setProducts, products }) {
               value={bestProduct}
               checked={bestProduct}
               onChange={(e) => {
+                updateBestProduct(product.id, !bestProduct);
                 setBestProduct(!bestProduct);
-                console.log(bestProduct);
-                updateBestProduct(product.id, bestProduct);
               }}
             />
           </div>
