@@ -1,63 +1,32 @@
 import { BsTrash } from "react-icons/bs";
-// import {useState, useEffect} from 'react';
 
 function Order({ order }) {
-  console.log(order);
+  function sumPrice() {
+    const precioTotal = order.products.reduce(
+      (acc, product) =>
+        acc + product.Order_Product.qty * product.Order_Product.unitPrice,
+      0
+    );
+    return precioTotal;
+  }
 
   return (
     <>
       <tr>
         <td>
-          <span
-            className="  border-0 p-2"
-            type="text"
-            name="orderId"
-            id={`${order.id}`}
-            value={order.id}
-          >
-            {order.id}
-          </span>
+          <span className="  border-0 p-2">{order.id}</span>
         </td>
         <td>
-          <span
-            className=" border-0 p-2"
-            type="text"
-            name="date"
-            value={order.createdAt}
-          >
-            {order.createdAt}
-          </span>
+          <span className=" border-0 p-2">{order.createdAt}</span>
         </td>
         <td>
-          <span
-            className="  border-0 p-2"
-            type="text"
-            name="client"
-            id={`${order.userId}`}
-            value={order.userId}
-          >
-            {order.user.email}
-          </span>
+          <span className="  border-0 p-2">{order.user.email}</span>
         </td>
         <td>
-          <span
-            className="  border-0 p-2"
-            type="text"
-            name="price"
-            value={order.price}
-          >
-            {order.price}
-          </span>
+          <span className="  border-0 p-2">{sumPrice()}</span>
         </td>
         <td>
-          <span
-            className="  border-0 p-2"
-            type="text"
-            name="state"
-            value={order.state}
-          >
-            {order.state}
-          </span>
+          <span className="  border-0 p-2">{order.state}</span>
         </td>
         <td>
           <p>

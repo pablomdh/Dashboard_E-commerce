@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CreateProduct = ({}) => {
+const CreateProduct = () => {
   const accessKey = useSelector((state) => state.accessKey);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

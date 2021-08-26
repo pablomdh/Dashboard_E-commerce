@@ -10,11 +10,13 @@ function Orders() {
       const response = await axios({
         method: "get",
         url: `http://localhost:3000/orders`,
+        headers: {
+          Authorization: `Bearer ${accessKey.accesToken}`,
+        },
       });
       setOrders(response.data);
     }
     getOrders();
-    // eslint-disable-next-line
   }, []);
   return (
     <div className="container p-4">
@@ -29,7 +31,8 @@ function Orders() {
           <th>Eliminar</th>
         </tr>
         <tbody className="p-0">
-          {orders && orders.map((order) => <Order order={order} />)}
+          {orders &&
+            orders.map((order) => <Order order={order} key={order.id} />)}
         </tbody>
       </table>
       <div className="d-flex justify-content-center">

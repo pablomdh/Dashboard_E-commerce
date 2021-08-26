@@ -36,7 +36,7 @@ const Product = () => {
         .catch((err) => console.log(err));
     };
     getProduct();
-  }, []);
+  }, [slug]);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
