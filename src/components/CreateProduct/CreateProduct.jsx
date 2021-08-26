@@ -94,7 +94,6 @@ const CreateProduct = ({}) => {
                 value={bestProduct}
                 checked={bestProduct}
                 onChange={(e) => setBestProduct(!bestProduct)}
-                required
               />
               <label className="form-check-label" htmlFor="bestproduct">
                 Destacado

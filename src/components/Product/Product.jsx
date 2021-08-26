@@ -109,7 +109,6 @@ const Product = () => {
                 value={bestProduct}
                 checked={bestProduct}
                 onChange={(e) => setBestProduct(!bestProduct)}
-                required
               />
               <label className="form-check-label" htmlFor="bestproduct">
                 Destacado
@@ -154,6 +153,7 @@ const Product = () => {
                 id="photo"
                 aria-describedby="emailHelp"
               />
+              {/* <img id="blah" alt="your image" src={newPhoto} /> */}
               <img
                 className={styles.cartImg}
                 src={`${process.env.REACT_APP_SUPABASE_BUCKET}${photo}`}
