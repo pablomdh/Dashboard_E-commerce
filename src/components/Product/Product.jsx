@@ -20,6 +20,9 @@ const Product = () => {
   const [price, setPrice] = useState(0);
   const [photo, setPhoto] = useState("");
 
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
+
   useEffect(() => {
     const getProduct = () => {
       axios
@@ -32,10 +35,23 @@ const Product = () => {
           setStock(response.data.stock);
           setPrice(response.data.price);
           setPhoto(response.data.photo);
+          setCategoryId(response.data.categoryId);
         })
         .catch((err) => console.log(err));
     };
     getProduct();
+  }, []);
+
+  useEffect(() => {
+    async function getCategories() {
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:3000/category`,
+      });
+      setCategories(response.data);
+    }
+    getCategories();
+    // eslint-disable-next-line
   }, []);
 
   const handleUpdate = async (ev) => {
@@ -141,6 +157,21 @@ const Product = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 required
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="category" className="form-label">
+                Categoría
+              </label>
+              <select name="category" id="category">
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    selected={categoryId === category.id && true}
+                  >
+                    {category.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="mb-3">
               <label htmlFor="photo" className="form-label">

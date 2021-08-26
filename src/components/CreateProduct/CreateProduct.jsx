@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -13,7 +13,20 @@ const CreateProduct = ({}) => {
   const [bestProduct, setBestProduct] = useState(false);
   const [stock, setStock] = useState(0);
   const [price, setPrice] = useState(0);
+  const [categories, setCategories] = useState([]);
   const [photo, setPhoto] = useState("");
+
+  useEffect(() => {
+    async function getCategories() {
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:3000/category`,
+      });
+      setCategories(response.data);
+    }
+    getCategories();
+    // eslint-disable-next-line
+  }, []);
 
   const handleCreate = async (ev) => {
     ev.preventDefault();
@@ -128,6 +141,16 @@ const CreateProduct = ({}) => {
               />
             </div>
             <div className="mb-3">
+              <label htmlFor="category" className="form-label">
+                Categoría
+              </label>
+              <select name="category" id="category">
+                {categories.map((category) => (
+                  <option value={category.id}>{category.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-3">
               <label htmlFor="photo" className="form-label">
                 Foto
               </label>
@@ -136,8 +159,6 @@ const CreateProduct = ({}) => {
                 className="form-control"
                 name="photo"
                 id="photo"
-                value={photo}
-                onChange={(e) => setPhoto(e.target.value)}
                 aria-describedby="emailHelp"
                 required
               />
