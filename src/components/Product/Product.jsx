@@ -46,7 +46,7 @@ const Product = () => {
     async function getCategories() {
       const response = await axios({
         method: "get",
-        url: `http://localhost:3000/category`,
+        url: `${process.env.REACT_APP_API}category`,
       });
       setCategories(response.data);
     }
@@ -59,7 +59,7 @@ const Product = () => {
     const data = new FormData(ev.target);
     await axios({
       method: "patch",
-      url: `http://localhost:3000/products`,
+      url: `${process.env.REACT_APP_API}products`,
       data,
       headers: {
         "Content-Type": "multipart/form-data",

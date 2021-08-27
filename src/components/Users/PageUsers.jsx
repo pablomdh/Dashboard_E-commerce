@@ -10,7 +10,7 @@ function PageUsers() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/user`, {
+      .get(`${process.env.REACT_APP_API}user`, {
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
       .then((response) => {
@@ -18,7 +18,7 @@ function PageUsers() {
       })
       .catch((err) => console.log(err));
     axios
-      .get(`http://localhost:3000/admin`, {
+      .get(`${process.env.REACT_APP_API}admin`, {
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
       .then((response) => {
@@ -28,7 +28,7 @@ function PageUsers() {
   });
   const handleDestroyUser = (id) => {
     axios
-      .delete(`http://localhost:3000/user`, {
+      .delete(`${process.env.REACT_APP_API}user`, {
         data: { id },
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
@@ -41,7 +41,7 @@ function PageUsers() {
   };
   const handleDestroyAdmin = (id) => {
     axios
-      .delete(`http://localhost:3000/admin`, {
+      .delete(`${process.env.REACT_APP_API}admin`, {
         data: { id },
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })

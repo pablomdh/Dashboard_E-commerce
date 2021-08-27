@@ -14,7 +14,7 @@ function BestProductButton({ product }) {
     const data = { id, bestProduct };
     await axios({
       method: "patch",
-      url: `http://localhost:3000/products/bestproduct`,
+      url: `${process.env.REACT_APP_API}products/bestproduct`,
       data,
       headers: {
         Authorization: `Bearer ${accessKey.accesToken}`,

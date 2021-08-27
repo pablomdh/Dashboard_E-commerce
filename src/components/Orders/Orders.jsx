@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Order from "../Order/Order";
 
-
 function Orders() {
   const [orders, setOrders] = useState([]);
   const accessKey = useSelector((state) => state.accessKey);
@@ -12,7 +11,7 @@ function Orders() {
     async function getOrders() {
       const response = await axios({
         method: "get",
-        url: `http://localhost:3000/orders`,
+        url: `${process.env.REACT_APP_API}orders`,
         headers: {
           Authorization: `Bearer ${accessKey.accesToken}`,
         },
