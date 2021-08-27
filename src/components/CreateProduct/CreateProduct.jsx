@@ -15,7 +15,7 @@ const CreateProduct = () => {
   const [price, setPrice] = useState(0);
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState(0);
-  const [photo, setPhoto] = useState("");
+  // const [photo, setPhoto] = useState("");
 
   useEffect(() => {
     async function getCategories() {
@@ -48,7 +48,7 @@ const CreateProduct = () => {
     setBestProduct(false);
     setStock(0);
     setPrice(0);
-    setPhoto("");
+    // setPhoto("");
     toast("🦄 El producto fue creado correctamente!", {
       position: "top-right",
       autoClose: 5000,

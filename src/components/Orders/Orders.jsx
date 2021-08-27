@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Order from "../Order/Order";
+import { useSelector } from "react-redux";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
-
+  const accessKey = useSelector((state) => state.accessKey);
   useEffect(() => {
     async function getOrders() {
       const response = await axios({
@@ -17,6 +18,7 @@ function Orders() {
       setOrders(response.data);
     }
     getOrders();
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="container p-4">

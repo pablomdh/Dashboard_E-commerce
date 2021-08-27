@@ -1,6 +1,19 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const Navbar = () => {
+  const accessKey = useSelector((state) => state.accessKey);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  function handleLogOut(e) {
+    e.preventDefault();
+    dispatch({
+      type: "LOGOUT",
+    });
+    history.push("/login");
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,8 +65,16 @@ const Navbar = () => {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <p>Log in</p>
-            <p>Log out</p>
+            {accessKey ? (
+              <p style={{ cursor: "pointer" }} onClick={(e) => handleLogOut(e)}>
+                Log out
+              </p>
+            ) : (
+              <p style={{ cursor: "pointer" }} onClick={history.push("/login")}>
+                Log in
+              </p>
+            )}
+
             <p>Sobre nosotros</p>
             <p>Perfil</p>
             <p>More</p>

@@ -4,6 +4,8 @@ const userReducer = (state = { accessKey: "" }, action) => {
   switch (action.type) {
     case "LOGIN":
       return { ...state, accessKey: action.payload };
+    case "LOGOUT":
+      return { ...state, accessKey: "" };
     default:
       return state;
   }
