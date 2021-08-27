@@ -12,7 +12,7 @@ function PageLogIn() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post(`http://localhost:3000/admin/token`, {
+      .post(`${process.env.REACT_APP_API}admin/token`, {
         email,
         password,
       })
@@ -45,10 +45,7 @@ function PageLogIn() {
         >
           <h3 className=" d-block text-center mt-2">Log In</h3>
 
-          <label
-            htmlFor="email"
-            className="text-dark  my-3  ps-3 fs-8 fw-bold text-gray"
-          >
+          <label htmlFor="email" className="text-dark  my-3  ps-3 fs-8 fw-bold text-gray">
             E-mail
           </label>
           <input
@@ -61,10 +58,7 @@ function PageLogIn() {
             className="  px-3 py-2 w-100 border-0"
             required
           />
-          <label
-            htmlFor="password"
-            className="text-dark  my-3  ps-3 fs-8 fw-bold"
-          >
+          <label htmlFor="password" className="text-dark  my-3  ps-3 fs-8 fw-bold">
             Contraseña
           </label>
           <input

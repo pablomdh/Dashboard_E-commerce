@@ -13,7 +13,7 @@ function Products() {
     async function getProducts() {
       const response = await axios({
         method: "get",
-        url: `http://localhost:3000/products`,
+        url: `${process.env.REACT_APP_API}products`,
       });
       setProducts(response.data);
     }
@@ -23,7 +23,7 @@ function Products() {
 
   const handleDestroy = (id) => {
     axios
-      .delete(`http://localhost:3000/products`, {
+      .delete(`${process.env.REACT_APP_API}products`, {
         data: { id },
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
