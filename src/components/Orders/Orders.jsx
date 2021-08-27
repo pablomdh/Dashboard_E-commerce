@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import Order from "../Order/Order";
 import { useSelector } from "react-redux";
@@ -6,6 +7,7 @@ import { useSelector } from "react-redux";
 function Orders() {
   const [orders, setOrders] = useState([]);
   const accessKey = useSelector((state) => state.accessKey);
+
   useEffect(() => {
     async function getOrders() {
       const response = await axios({
@@ -33,8 +35,7 @@ function Orders() {
           <th>Eliminar</th>
         </tr>
         <tbody className="p-0">
-          {orders &&
-            orders.map((order) => <Order order={order} key={order.id} />)}
+          {orders && orders.map((order) => <Order order={order} key={order.id} />)}
         </tbody>
       </table>
       <div className="d-flex justify-content-center">
