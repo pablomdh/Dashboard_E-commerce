@@ -19,6 +19,7 @@ function Orders() {
       setOrders(response.data);
     }
     getOrders();
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="container p-4">
