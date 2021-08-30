@@ -46,7 +46,7 @@ const DashboardCards = () => {
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
-                      <span className="text-white fs-4">Agregar Producto</span>
+                      <span className="text-white fs-4"> Producto</span>
                     </h5>
                   </div>
                   <div className="d-flex flex-column align-items-center ">
