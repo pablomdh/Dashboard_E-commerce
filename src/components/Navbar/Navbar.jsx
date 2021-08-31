@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark position-fixed sticky-top w-100">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark position-fixed sticky-top vw-100">
         <div className="container-fluid">
           <a className="navbar-brand" href="...">
             PAPOS Inc.
