@@ -1,7 +1,7 @@
 .sideBar {
   margin: 0;
   padding: 0;
-  width: 150px;
+  width: 180px;
   background-color: #212529;
   position: fixed;
   top: 0;
@@ -9,6 +9,7 @@
   height: 100%;
   overflow: auto;
   transition: 0.1s;
+  font-size: 1.2rem;
 }
 
 .sideBar a {
@@ -33,6 +34,7 @@
   .sideBar {
     width: 100%;
     height: auto;
+    display: none;
   }
   .sideBar a {
     float: left;
