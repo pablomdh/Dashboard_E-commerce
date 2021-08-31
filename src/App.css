@@ -3,6 +3,8 @@
 body {
   font-family: "Oswald", sans-serif;
   font-size: 1.2rem;
+  padding-left: 150px;
+  padding-top: 100px;
 }
 .nomatch {
   height: 20rem;
@@ -10,4 +12,11 @@ body {
 
 .input {
   border: none;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    padding-left: 0;
+    padding-top: o;
+  }
 }

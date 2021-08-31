@@ -15,12 +15,14 @@ import Categories from "./components/Categories/Categories";
 import Category from "./components/Category/Category";
 // import Footer from "./components/subComponents/Footer/Footer";
 // import PageSignUp from "./components/PageSignUp/PageSignUp";
+import SideBar from "./components/SideBar/SideBar";
 
 function App() {
   return (
     <div className="App d-flex flex-column h-100">
       <Router>
         <Navbar />
+        <SideBar />
         <DashboardCards />
         <div>
           <Switch>

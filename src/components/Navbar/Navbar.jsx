@@ -16,14 +16,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark position-fixed sticky-top w-100">
         <div className="container-fluid">
           <a className="navbar-brand" href="...">
             PAPOS Inc.
           </a>
 
           <div
-            className="btn"
+            className="btn "
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasWithBothOptions"
@@ -33,7 +33,7 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="30"
               height="30"
-              fill=""
+              fill="white"
               className="bi bi-list"
               viewBox="0 0 16 16"
             >
