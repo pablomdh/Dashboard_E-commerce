@@ -59,9 +59,9 @@ function Products() {
             </thead>
             <tbody className="p-0">
               {products.map((product) => (
-                <tr>
+                <tr key={product.id}>
                   <td>
-                    <input name="id" value={product.id} hidden />
+                    <input name="id" value={product.id} readOnly hidden />
                     <span>{product.name}</span>
                   </td>
                   <td>

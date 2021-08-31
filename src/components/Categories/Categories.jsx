@@ -55,7 +55,7 @@ function Categories() {
             </thead>
             <tbody className="p-0">
               {categories.map((category) => (
-                <tr>
+                <tr key={category.id}>
                   <td>
                     <input name="id" value={category.id} hidden />
                     <span>{category.name}</span>
