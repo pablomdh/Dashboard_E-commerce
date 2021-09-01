@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App d-flex flex-column h-100">
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <SideBar />
         <div>
           <Switch>
