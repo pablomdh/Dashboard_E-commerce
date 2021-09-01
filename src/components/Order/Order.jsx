@@ -1,4 +1,5 @@
 import { BsTrash } from "react-icons/bs";
+import moment from "moment";
 
 function Order({ order }) {
   function sumPrice() {
@@ -10,24 +11,17 @@ function Order({ order }) {
     return precioTotal;
   }
 
+  console.log(order.user.email);
   return (
     <>
       <tr>
-        <td>
-          <span className="  border-0 p-2">{order.id}</span>
+        <td className="border-0 p-2">{order.id}</td>
+        <td className=" border-0 p-2">
+          {moment(order.createdAt).subtract(12, "days").calendar()}
         </td>
-        <td>
-          <span className=" border-0 p-2">{order.createdAt}</span>
-        </td>
-        <td>
-          <span className="  border-0 p-2">{order.user.email}</span>
-        </td>
-        <td>
-          <span className="  border-0 p-2">{sumPrice()}</span>
-        </td>
-        <td>
-          <span className="  border-0 p-2">{order.state}</span>
-        </td>
+        <td className="border-0 p-2">{/* {order.user.email} */}</td>
+        <td className="border-0 p-2">{sumPrice()}</td>
+        <td className="border-0 p-2">{order.state}</td>
         <td>
           <p>
             <BsTrash />
