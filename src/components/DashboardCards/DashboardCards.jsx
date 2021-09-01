@@ -6,7 +6,7 @@ const DashboardCards = () => {
     <>
       <div className="container">
         <div className="row mt-4 justify-content-center">
-          <div className="col-xl-3 col-lg-6  col-md-6 ">
+          <div className="col-xl-4 col-lg-3  col-md-6 ">
             <Link to="/" className="nav-link " aria-current="page">
               <div
                 className={`${styles.cardMenuDashboard} card shadow border-0`}
