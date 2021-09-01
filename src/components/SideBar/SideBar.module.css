@@ -8,7 +8,7 @@
   left: 0;
   height: 100%;
   overflow: auto;
-  transition: 0.1s;
+  transition: 0.2s;
   font-size: 1.2rem;
 }
 
@@ -17,13 +17,12 @@
   color: rgb(255, 255, 255);
   padding: 16px;
   text-decoration: none;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
-/* .sideBar a.active {
-  background-color: #04aa6d;
+.sideBar a.active {
   color: white;
-} */
+}
 
 .sideBar a:hover:not(.active) {
   background-color: rgb(114, 113, 113);
@@ -34,23 +33,28 @@
   .sideBar {
     width: 100%;
     height: auto;
+    transition: 0.2s;
+    z-index: 1;
+  }
+  .displayNone a {
     display: none;
   }
-  /* .sideBar a {
+
+  .sideBar a {
     float: left;
     text-align: center;
   }
   div.content {
     margin-left: 0;
-  } */
-}
-
-@media screen and (max-width: 400px) {
-  .sideBar {
-    display: none;
   }
   .sideBar a {
     text-align: center;
     float: none;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .burgerButton {
+    display: none !important;
   }
 }

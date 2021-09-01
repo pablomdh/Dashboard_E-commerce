@@ -47,21 +47,18 @@ const CreateProduct = () => {
         setStock(0);
         setPrice(0);
         // setPhoto("");
-        toast(
-          `🦄 El producto ${response.data.product.name}  fue creado correctamente!`,
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }
-        );
+        toast(`🦄 El producto ${response.data.name}  fue creado correctamente!`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((error) => {
-        alert("Este producto ya existe");
+        console.log(error);
       });
 
     // await axios({
@@ -104,7 +101,7 @@ const CreateProduct = () => {
           >
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
-                Name
+                Nombre
               </label>
               <input
                 type="text"
@@ -130,7 +127,7 @@ const CreateProduct = () => {
                 required
               ></textarea>
             </div>
-            <div className="mb-3 form-check">
+            <div class="form-check form-switch">
               <input
                 type="checkbox"
                 className="form-check-input"

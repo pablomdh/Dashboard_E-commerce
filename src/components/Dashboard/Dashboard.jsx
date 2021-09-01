@@ -1,31 +1,28 @@
 import { Link } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 
-const DashboardCards = () => {
+const Dashboard = () => {
   return (
     <>
-      <div className={`${styles.fakeGraph} container m-auto text-center`}>
-        <img src="/img/graph.png" alt="" className=" img-fluid shadow p-5" />
-        <div className="d-flex justify-content-between  mt-3">
-          <div className="m-auto p-4">
-            <img src="/img/g1.png" alt="" className=" img-fluid shadow " />
-          </div>
-          <div className="m-auto p-4">
-            <img src="/img/g2.png" alt="" className=" img-fluid shadow " />
-          </div>
-          <div className="m-auto p-4">
-            <img src="/img/g3.png" alt="" className=" img-fluid shadow " />
+      <div className="container">
+        <div className={`${styles.fakeGraph} container m-auto text-center`}>
+          <img src="/img/graph.png" alt="" className=" img-fluid shadow p-5" />
+          <div className="d-flex justify-content-between  mt-3">
+            <div className="m-auto p-4">
+              <img src="/img/g1.png" alt="" className=" img-fluid shadow " />
+            </div>
+            <div className="m-auto p-4">
+              <img src="/img/g2.png" alt="" className=" img-fluid shadow " />
+            </div>
+            <div className="m-auto p-4">
+              <img src="/img/g3.png" alt="" className=" img-fluid shadow " />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="container">
         <div className="row mt-4 justify-content-center">
-          <div className="col-xl-4 col-lg-3  col-md-6 ">
-            <Link to="/" className="nav-link " aria-current="page">
-              <div
-                className={`${styles.cardMenuDashboard} card shadow border-0`}
-              >
+          <div className="col-xl-4 col-lg-4  col-md-6 ">
+            <Link to="/products" className="nav-link " aria-current="page">
+              <div className={`${styles.cardMenuDashboard} card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-4">
@@ -49,15 +46,9 @@ const DashboardCards = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-3  col-md-6  ">
-            <Link
-              to="/create-product"
-              className="nav-link active"
-              aria-current="page"
-            >
-              <div
-                className={`${styles.cardMenuAdd} w-100 card shadow border-0`}
-              >
+          <div className="col-xl-4 col-lg-4  col-md-6  ">
+            <Link to="/create-product" className="nav-link active" aria-current="page">
+              <div className={`${styles.cardMenuAdd} w-100 card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -81,7 +72,7 @@ const DashboardCards = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-3 col-md-6 ">
+          <div className="col-xl-4 col-lg-4 col-md-6 ">
             <Link to="/orders" className="nav-link">
               <div className={`${styles.cardMenuOrders}  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
@@ -107,15 +98,9 @@ const DashboardCards = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-3  col-md-6  ">
-            <Link
-              to="/categories"
-              className="nav-link active"
-              aria-current="page"
-            >
-              <div
-                className={`${styles.cardMenuCategory}  card shadow border-0`}
-              >
+          <div className="col-xl-4 col-lg-4  col-md-6  ">
+            <Link to="/categories" className="nav-link active" aria-current="page">
+              <div className={`${styles.cardMenuCategory}  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -139,11 +124,9 @@ const DashboardCards = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-3  col-md-6 ">
+          <div className="col-xl-4 col-lg-4  col-md-6 ">
             <Link to="/graphs" className="nav-link">
-              <div
-                className={`${styles.cardMenuGraph} w-100  card shadow border-0`}
-              >
+              <div className={`${styles.cardMenuGraph} w-100  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -166,11 +149,9 @@ const DashboardCards = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-3  col-md-6 ">
+          <div className="col-xl-4 col-lg-4  col-md-6 ">
             <Link to="/users" className="nav-link">
-              <div
-                className={`${styles.cardMenuUsers} w-100  card shadow border-0`}
-              >
+              <div className={`${styles.cardMenuUsers} w-100  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -199,4 +180,4 @@ const DashboardCards = () => {
   );
 };
 
-export default DashboardCards;
+export default Dashboard;

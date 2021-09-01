@@ -19,7 +19,7 @@ function Order({ order }) {
         <td className=" border-0 p-2">
           {moment(order.createdAt).subtract(12, "days").calendar()}
         </td>
-        <td className="border-0 p-2">{/* {order.user.email} */}</td>
+        <td className="border-0 p-2">{order.user && order.user.email}</td>
         <td className="border-0 p-2">{sumPrice()}</td>
         <td className="border-0 p-2">{order.state}</td>
         <td>

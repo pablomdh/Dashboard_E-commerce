@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import styles from "./Product.module.css";
+import styles from "./UpdateProduct.module.css";
 
-const Product = () => {
+const UpdateProduct = () => {
   const { slug } = useParams();
   const accessKey = useSelector((state) => state.accessKey);
   const [id, setId] = useState(0);
@@ -204,10 +204,10 @@ const Product = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-success">
+            <button type="submit" className="btn btn-success me-2">
               Guardar cambios
             </button>
-            <Link to="/" className="btn btn-warning">
+            <Link to="/products" className="btn btn-warning">
               Volver
             </Link>
           </form>
@@ -228,4 +228,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default UpdateProduct;
