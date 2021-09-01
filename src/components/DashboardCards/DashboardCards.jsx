@@ -4,6 +4,10 @@ import styles from "./Dashboard.module.css";
 const DashboardCards = () => {
   return (
     <>
+      <div className={`${styles.fakeGraph} container m-auto text-center`}>
+        <img src="/img/graph.png" alt="" className=" img-fluid shadow p-5" />
+      </div>
+
       <div className="container">
         <div className="row mt-4 justify-content-center">
           <div className="col-xl-4 col-lg-3  col-md-6 ">
