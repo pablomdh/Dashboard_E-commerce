@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers/reducer";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 //agregue
 import { persistStore, persistReducer } from "redux-persist";
