@@ -3,8 +3,7 @@ import { BsTrash } from "react-icons/bs";
 function Order({ order }) {
   function sumPrice() {
     const precioTotal = order.products.reduce(
-      (acc, product) =>
-        acc + product.Order_Product.qty * product.Order_Product.unitPrice,
+      (acc, product) => acc + product.Order_Product.qty * product.Order_Product.unitPrice,
       0
     );
     return precioTotal;
@@ -20,7 +19,7 @@ function Order({ order }) {
           <span className=" border-0 p-2">{order.createdAt}</span>
         </td>
         <td>
-          <span className="  border-0 p-2">{order.user.email}</span>
+          <span className="  border-0 p-2">{order.user && order.user.email}</span>
         </td>
         <td>
           <span className="  border-0 p-2">{sumPrice()}</span>

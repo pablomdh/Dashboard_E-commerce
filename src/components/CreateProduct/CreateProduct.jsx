@@ -47,7 +47,7 @@ const CreateProduct = () => {
         setStock(0);
         setPrice(0);
         // setPhoto("");
-        toast(`🦄 El producto ${response.data.product.name}  fue creado correctamente!`, {
+        toast(`🦄 El producto ${response.data.name}  fue creado correctamente!`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -127,7 +127,7 @@ const CreateProduct = () => {
                 required
               ></textarea>
             </div>
-            <div className="mb-3 form-check">
+            <div class="form-check form-switch">
               <input
                 type="checkbox"
                 className="form-check-input"

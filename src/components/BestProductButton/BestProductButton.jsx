@@ -33,9 +33,9 @@ function BestProductButton({ product }) {
 
   return (
     <>
-      <div className="input-group ">
+      <div class="form-check form-switch">
         <input
-          className="input-group form-check-input p-3 border-0"
+          className="form-check-input"
           type="checkbox"
           name="bestproduct"
           value={bestProduct}
