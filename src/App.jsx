@@ -13,6 +13,7 @@ import Product from "./components/Product/Product";
 import PageUsers from "./components/Users/PageUsers";
 import Categories from "./components/Categories/Categories";
 import Category from "./components/Category/Category";
+import Products from "./components/Products/Products";
 // import Footer from "./components/subComponents/Footer/Footer";
 // import PageSignUp from "./components/PageSignUp/PageSignUp";
 import SideBar from "./components/SideBar/SideBar";
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             {/* <Route exact path="/registro" component={PageSignUp} /> */}
             <Route exact path="/login" component={PageLogIn} />
+            <Route exact path="/products" component={Products} />
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/create-product" component={CreateProduct} />
             <Route exact path="/orders" component={Orders} />

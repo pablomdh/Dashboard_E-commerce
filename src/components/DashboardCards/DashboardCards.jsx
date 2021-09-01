@@ -4,6 +4,21 @@ import styles from "./Dashboard.module.css";
 const DashboardCards = () => {
   return (
     <>
+      <div className={`${styles.fakeGraph} container m-auto text-center`}>
+        <img src="/img/graph.png" alt="" className=" img-fluid shadow p-5" />
+        <div className="d-flex justify-content-between  mt-3">
+          <div className="m-auto p-4">
+            <img src="/img/g1.png" alt="" className=" img-fluid shadow " />
+          </div>
+          <div className="m-auto p-4">
+            <img src="/img/g2.png" alt="" className=" img-fluid shadow " />
+          </div>
+          <div className="m-auto p-4">
+            <img src="/img/g3.png" alt="" className=" img-fluid shadow " />
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         <div className="row mt-4 justify-content-center">
           <div className="col-xl-4 col-lg-3  col-md-6 ">

@@ -50,12 +50,14 @@ function Products() {
         <div className="table-responsive">
           <table className="table table-hover  table-striped border-1 ">
             <thead className="fs-5">
-              <td>Item</td>
-              <td>Descripción</td>
-              <td>Destacados</td>
-              <td>Stock</td>
-              <td>Precio</td>
-              <td>Acciones</td>
+              <tr>
+                <td>Item</td>
+                <td>Descripción</td>
+                <td>Destacados</td>
+                <td>Stock</td>
+                <td>Precio</td>
+                <td>Acciones</td>
+              </tr>
             </thead>
             <tbody className="p-0">
               {products.map((product) => (

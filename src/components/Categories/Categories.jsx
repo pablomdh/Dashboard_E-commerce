@@ -49,9 +49,11 @@ function Categories() {
         <div className="table-responsive">
           <table className="table table-hover table-striped border-1 ">
             <thead className="fs-5">
-              <td>Categoría</td>
-              <td>Descripción</td>
-              <td>Acciones</td>
+              <tr>
+                <td>Categoría</td>
+                <td>Descripción</td>
+                <td>Acciones</td>
+              </tr>
             </thead>
             <tbody className="p-0">
               {categories.map((category) => (
