@@ -8,7 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Orders from "./components/Orders/Orders";
 import Graphs from "./components/Graphs/Graphs";
 import CreateProduct from "./components/CreateProduct/CreateProduct";
-import Product from "./components/Product/Product";
+import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import PageUsers from "./components/Users/PageUsers";
 import Categories from "./components/Categories/Categories";
 import Category from "./components/Category/Category";
@@ -37,7 +37,7 @@ function App() {
             <Route exact path="/categories" component={Categories} />
             <Route exact path="/create-category" component={CreateCategory} />
             <Route exact path="/category/:slug" component={Category} />
-            <Route exact path="/:slug" component={Product} />
+            <Route exact path="/:slug" component={UpdateProduct} />
             <Route component={NoMatch} />
           </Switch>
         </div>
