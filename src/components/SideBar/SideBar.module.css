@@ -20,10 +20,10 @@
   transition: 0.2s;
 }
 
-/* .sideBar a.active {
+.sideBar a.active {
   background-color: #04aa6d;
   color: white;
-} */
+}
 
 .sideBar a:hover:not(.active) {
   background-color: rgb(114, 113, 113);
@@ -34,21 +34,18 @@
   .sideBar {
     width: 100%;
     height: auto;
-    display: none;
   }
-  /* .sideBar a {
+  .sideBar a {
     float: left;
     text-align: center;
+    display: none;
   }
   div.content {
     margin-left: 0;
-  } */
+  }
 }
 
 @media screen and (max-width: 400px) {
-  .sideBar {
-    display: none;
-  }
   .sideBar a {
     text-align: center;
     float: none;
