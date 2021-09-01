@@ -15,20 +15,34 @@ const SideBar = () => {
     history.push("/login");
   }
 
+  //open SideBar in responsive Navbar
+  const mediaQuery = window.matchMedia("(max-width: 700px)");
+  function HandleOpenMenu() {
+    console.log("message");
+    if (mediaQuery.matches) {
+      const sideBarLinks = document.querySelector("#sideBarLinks");
+      sideBarLinks.classList.toggle(`${styles.displayNone}`);
+
+      //addclases
+    }
+  }
+  console.log(mediaQuery.matches);
   return (
-    <div className={`${styles.sideBar}`}>
-      <div className="d-flex  flex-column justify-content-between h-100 ">
+    <div id="sideBar" className={`${styles.sideBar} `}>
+      <div className=" d-flex  flex-column  h-100 ">
         <div>
           <div className="d-flex justify-content-between">
             <div className="navbar-brand" to="/">
               LOGO
             </div>
+
             <div
-              className="btn "
+              className={`btn ${styles.burgerButton}`}
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasWithBothOptions"
               aria-controls="offcanvasWithBothOptions"
+              onClick={() => HandleOpenMenu()}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,25 +56,33 @@ const SideBar = () => {
               </svg>
             </div>
           </div>
-          <Link to="/" className="active">
-            Dashboard
-          </Link>
-          <Link to="/products">Productos</Link>
-          <Link to="/create-product">+ Producto</Link>
-          <Link to="/categories">Categorias</Link>
-          <Link to="/create-category">+ Categorias</Link>
-          <Link to="/users">Usuarios</Link>
-          <Link to="/orders">Ordenes</Link>
-          <Link to="/graphs">Estadísticas</Link>
         </div>
-        <div className="mb-3">
+        <div
+          id="sideBarLinks"
+          className={`${styles.displayNone} d-flex flex-column justify-content-between h-100`}
+        >
           {accessKey ? (
-            <Link
-              style={{ cursor: "pointer", color: "white" }}
-              onClick={(e) => handleLogOut(e)}
-            >
-              Log out
-            </Link>
+            <>
+              <div>
+                <Link to="/" className="active">
+                  Dashboard
+                </Link>
+                <Link to="/products">Productos</Link>
+                <Link to="/create-product">+ Producto</Link>
+                <Link to="/categories">Categorias</Link>
+                <Link to="/create-category">+ Categorias</Link>
+                <Link to="/users">Usuarios</Link>
+                <Link to="/orders">Ordenes</Link>
+                <Link to="/graphs">Estadísticas</Link>
+              </div>
+
+              <Link
+                style={{ cursor: "pointer", color: "white" }}
+                onClick={(e) => handleLogOut(e)}
+              >
+                Log out
+              </Link>
+            </>
           ) : (
             <Link
               style={{ cursor: "pointer", color: "white" }}
