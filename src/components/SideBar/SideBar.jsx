@@ -1,4 +1,5 @@
 import styles from "./SideBar.module.css";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -9,15 +10,15 @@ const SideBar = () => {
         </a>
         <div className="d-flex  flex-column justify-content-around h-100">
           <div>
-            <a className="active" href="#home">
-              Inicio
-            </a>
-            <a href="#news">Productos</a>
-            <a href="#contact">+ Producto</a>
-            <a href="#contact">+ Categoria</a>
-            <a href="#contact">Usuarios</a>
-            <a href="#contact">Ordenes</a>
-            <a href="#about">Estadisticas</a>
+            <Link to="/" className="active">
+              Dashboard
+            </Link>
+            <Link to="/">Productos</Link>
+            <Link to="/create-product">+ Producto</Link>
+            <Link to="/categories">+ Categorias</Link>
+            <Link to="/users">Usuarios</Link>
+            <Link to="/orders">Ordenes</Link>
+            <Link to="/graphs">Estadísticas</Link>
           </div>
 
           <div>
