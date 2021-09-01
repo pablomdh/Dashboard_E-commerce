@@ -32,32 +32,62 @@ const CreateProduct = () => {
   const handleCreate = async (ev) => {
     ev.preventDefault();
     const data = new FormData(ev.target);
+    axios
+      .post(`${process.env.REACT_APP_API}products`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${accessKey.accesToken}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setName("");
+        setDescription("");
+        setBestProduct(false);
+        setStock(0);
+        setPrice(0);
+        // setPhoto("");
+        toast(
+          `🦄 El producto ${response.data.product.name}  fue creado correctamente!`,
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+      })
+      .catch((error) => {
+        alert("Este producto ya existe");
+      });
 
-    await axios({
-      method: "post",
-      url: `${process.env.REACT_APP_API}products`,
-      data,
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${accessKey.accesToken}`,
-      },
-    });
-
-    setName("");
-    setDescription("");
-    setBestProduct(false);
-    setStock(0);
-    setPrice(0);
-    // setPhoto("");
-    toast("🦄 El producto fue creado correctamente!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    // await axios({
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_API}products`,
+    //   data,
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     Authorization: `Bearer ${accessKey.accesToken}`,
+    //   },
+    // });
+    // setName("");
+    // setDescription("");
+    // setBestProduct(false);
+    // setStock(0);
+    // setPrice(0);
+    // // setPhoto("");
+    // toast("🦄 El producto fue creado correctamente!", {
+    //   position: "top-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    // });
   };
 
   return (
