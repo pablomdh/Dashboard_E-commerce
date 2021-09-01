@@ -74,7 +74,7 @@ const CreateProduct = () => {
           >
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
-                Name
+                Nombre
               </label>
               <input
                 type="text"
