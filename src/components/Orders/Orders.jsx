@@ -24,8 +24,8 @@ function Orders() {
   return (
     <div className="container p-4">
       <h1 className="mb-4">Órdenes</h1>
-      <div className="table-responsive">
-        <table className="table table-hover  table-striped border-1 ">
+      <table className="table table-hover  table-striped border-1 ">
+        <thead>
           <tr className="fs-5">
             <th>Número de Orden</th>
             <th>Fecha</th>
@@ -34,12 +34,11 @@ function Orders() {
             <th>Estado</th>
             <th>Eliminar</th>
           </tr>
-          <tbody className="p-0">
-            {orders &&
-              orders.map((order) => <Order order={order} key={order.id} />)}
-          </tbody>
-        </table>
-      </div>
+        </thead>
+        <tbody className="p-0">
+          {orders && orders.map((order) => <Order order={order} key={order.id} />)}
+        </tbody>
+      </table>
       <div className="d-flex justify-content-center">
         <button className="btn btn-warning my-4">Guardar Cambios</button>
       </div>

@@ -13,9 +13,6 @@ const Category = () => {
   const [id, setId] = useState(0);
   const [name, setName] = useState("");
 
-  const [categories, setCategories] = useState([]);
-  const [categoryId, setCategoryId] = useState(0);
-
   useEffect(() => {
     const getProduct = () => {
       axios
@@ -23,24 +20,11 @@ const Category = () => {
         .then((response) => {
           setId(response.data.id);
           setName(response.data.name);
-          setCategoryId(response.data.categoryId);
         })
         .catch((err) => console.log(err));
     };
     getProduct();
   }, [slug]);
-
-  useEffect(() => {
-    async function getCategories() {
-      const response = await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API}category`,
-      });
-      setCategories(response.data);
-    }
-    getCategories();
-    // eslint-disable-next-line
-  }, []);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
