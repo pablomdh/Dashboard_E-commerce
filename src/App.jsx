@@ -17,6 +17,7 @@ import Products from "./components/Products/Products";
 // import PageSignUp from "./components/PageSignUp/PageSignUp";
 import SideBar from "./components/SideBar/SideBar";
 import CreateCategory from "./components/CreateCategory/CreateCategory";
+import PrivateRoute from "./components/PrivateRoutes/PrivateRoute";
 
 function App() {
   return (
@@ -28,16 +29,16 @@ function App() {
           <Switch>
             {/* <Route exact path="/registro" component={PageSignUp} /> */}
             <Route exact path="/login" component={PageLogIn} />
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/products" component={Products} />
-            <Route exact path="/create-product" component={CreateProduct} />
-            <Route exact path="/orders" component={Orders} />
-            <Route exact path="/graphs" component={Graphs} />
-            <Route exact path="/users" component={PageUsers} />
-            <Route exact path="/categories" component={Categories} />
-            <Route exact path="/create-category" component={CreateCategory} />
-            <Route exact path="/category/:slug" component={Category} />
-            <Route exact path="/:slug" component={UpdateProduct} />
+            <PrivateRoute exact path="/" component={Dashboard} />
+            <PrivateRoute exact path="/products" component={Products} />
+            <PrivateRoute exact path="/create-product" component={CreateProduct} />
+            <PrivateRoute exact path="/orders" component={Orders} />
+            <PrivateRoute exact path="/graphs" component={Graphs} />
+            <PrivateRoute exact path="/users" component={PageUsers} />
+            <PrivateRoute exact path="/categories" component={Categories} />
+            <PrivateRoute exact path="/create-category" component={CreateCategory} />
+            <PrivateRoute exact path="/category/:slug" component={Category} />
+            <PrivateRoute exact path="/:slug" component={UpdateProduct} />
             <Route component={NoMatch} />
           </Switch>
         </div>

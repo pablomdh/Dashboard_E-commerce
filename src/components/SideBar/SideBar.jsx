@@ -26,7 +26,7 @@ const SideBar = () => {
       //addclases
     }
   }
-  console.log(mediaQuery.matches);
+
   return (
     <div id="sideBar" className={`${styles.sideBar} `}>
       <div className=" d-flex  flex-column  h-100 ">
