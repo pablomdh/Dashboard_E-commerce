@@ -80,7 +80,7 @@ const Dashboard = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 ">
+          <div className="col-xl-4 col-lg-4  col-md-6 col-xs-2 ">
             <Link to="/orders" className="nav-link">
               <div className={`${styles.cardMenuOrders}  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
@@ -104,7 +104,7 @@ const Dashboard = () => {
               </div>
             </Link>
           </div>
-          <div className="col-xl-4 col-lg-4  col-md-6  ">
+          <div className="col-xl-4 col-lg-4  col-md-6 col-xs-2 ">
             <Link
               to="/categories"
               className="nav-link active"

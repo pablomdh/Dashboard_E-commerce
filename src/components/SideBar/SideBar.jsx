@@ -66,7 +66,7 @@ const SideBar = () => {
             <>
               <div>
                 <Link to="/" className="active">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Dashboard{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/products">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Productos
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ const SideBar = () => {
                 </Link>
                 <Link to="/create-product">
                   {" "}
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     + Producto{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/categories">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Categorias{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/create-category">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     + Categorias{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/users">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Usuarios{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -164,7 +164,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/orders">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Ordenes{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@ const SideBar = () => {
                   </div>
                 </Link>
                 <Link to="/graphs">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-end">
                     Estadísticas{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
