@@ -2,7 +2,6 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageLogIn from "./components/PageLogIn/PageLogIn";
-// import Navbar from "./components/Navbar/Navbar";
 import NoMatch from "./components/NoMatch/NoMatch";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Orders from "./components/Orders/Orders";
@@ -23,7 +22,6 @@ function App() {
   return (
     <div className="App d-flex flex-column h-100">
       <Router>
-        {/* <Navbar /> */}
         <SideBar />
         <div>
           <Switch>

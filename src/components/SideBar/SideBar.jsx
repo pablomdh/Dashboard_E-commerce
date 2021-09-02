@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 
 const SideBar = () => {
   const accessKey = useSelector((state) => state.accessKey);
+
   const dispatch = useDispatch();
   const history = useHistory();
   function handleLogOut(e) {
@@ -86,7 +87,7 @@ const SideBar = () => {
           ) : (
             <Link
               style={{ cursor: "pointer", color: "white" }}
-              onClick={history.push("/login")}
+              onClick={() => history.push("/login")}
             >
               Log in
             </Link>
