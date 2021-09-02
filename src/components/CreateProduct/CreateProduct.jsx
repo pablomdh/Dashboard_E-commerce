@@ -47,7 +47,7 @@ const CreateProduct = () => {
         setStock(0);
         setPrice(0);
         // setPhoto("");
-        toast(`🦄 El producto ${response.data.name}  fue creado correctamente!`, {
+        toast(` El producto ${response.data.name}  fue creado correctamente!`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -61,30 +61,6 @@ const CreateProduct = () => {
         console.log(error);
       });
 
-    // await axios({
-    //   method: "post",
-    //   url: `${process.env.REACT_APP_API}products`,
-    //   data,
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //     Authorization: `Bearer ${accessKey.accesToken}`,
-    //   },
-    // });
-    // setName("");
-    // setDescription("");
-    // setBestProduct(false);
-    // setStock(0);
-    // setPrice(0);
-    // // setPhoto("");
-    // toast("🦄 El producto fue creado correctamente!", {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
   };
 
   return (

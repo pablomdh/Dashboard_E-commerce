@@ -11,7 +11,6 @@ function Order({ order }) {
     return precioTotal;
   }
 
-  console.log(order.user.email);
   return (
     <>
       <tr>
