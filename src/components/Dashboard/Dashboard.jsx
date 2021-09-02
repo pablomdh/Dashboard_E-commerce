@@ -22,7 +22,9 @@ const Dashboard = () => {
         <div className="row mt-4 justify-content-center">
           <div className="col-xl-4 col-lg-4  col-md-6 ">
             <Link to="/products" className="nav-link " aria-current="page">
-              <div className={`${styles.cardMenuDashboard} card shadow border-0`}>
+              <div
+                className={`${styles.cardMenuDashboard} card shadow border-0`}
+              >
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-4">
@@ -47,8 +49,14 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6  ">
-            <Link to="/create-product" className="nav-link active" aria-current="page">
-              <div className={`${styles.cardMenuAdd} w-100 card shadow border-0`}>
+            <Link
+              to="/create-product"
+              className="nav-link active"
+              aria-current="page"
+            >
+              <div
+                className={`${styles.cardMenuAdd} w-100 card shadow border-0`}
+              >
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -77,9 +85,7 @@ const Dashboard = () => {
               <div className={`${styles.cardMenuOrders}  card shadow border-0`}>
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
-                    <h5 className="fs-4">
-                      Orders <span className="text-white fs-6"> (456) </span>
-                    </h5>
+                    <h5 className="fs-4">Orders</h5>
                   </div>
                   <div className="d-flex flex-column align-items-center mt-2">
                     <svg
@@ -99,8 +105,14 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6  ">
-            <Link to="/categories" className="nav-link active" aria-current="page">
-              <div className={`${styles.cardMenuCategory}  card shadow border-0`}>
+            <Link
+              to="/categories"
+              className="nav-link active"
+              aria-current="page"
+            >
+              <div
+                className={`${styles.cardMenuCategory}  card shadow border-0`}
+              >
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -110,14 +122,14 @@ const Dashboard = () => {
                   <div className="d-flex flex-column align-items-center ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="60"
-                      height="60"
+                      width="30"
+                      height="30"
                       fill="currentColor"
-                      class="bi bi-bookmark-plus"
+                      class="bi bi-bookmark-star"
                       viewBox="0 0 16 16"
                     >
+                      <path d="M7.84 4.1a.178.178 0 0 1 .32 0l.634 1.285a.178.178 0 0 0 .134.098l1.42.206c.145.021.204.2.098.303L9.42 6.993a.178.178 0 0 0-.051.158l.242 1.414a.178.178 0 0 1-.258.187l-1.27-.668a.178.178 0 0 0-.165 0l-1.27.668a.178.178 0 0 1-.257-.187l.242-1.414a.178.178 0 0 0-.05-.158l-1.03-1.001a.178.178 0 0 1 .098-.303l1.42-.206a.178.178 0 0 0 .134-.098L7.84 4.1z" />
                       <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                      <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
                     </svg>
                   </div>
                 </div>
@@ -126,7 +138,9 @@ const Dashboard = () => {
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6 ">
             <Link to="/graphs" className="nav-link">
-              <div className={`${styles.cardMenuGraph} w-100  card shadow border-0`}>
+              <div
+                className={`${styles.cardMenuGraph} w-100  card shadow border-0`}
+              >
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
@@ -151,7 +165,9 @@ const Dashboard = () => {
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6 ">
             <Link to="/users" className="nav-link">
-              <div className={`${styles.cardMenuUsers} w-100  card shadow border-0`}>
+              <div
+                className={`${styles.cardMenuUsers} w-100  card shadow border-0`}
+              >
                 <div className="card-body d-flex  align-items-center justify-content-between">
                   <div>
                     <h5 className="fs-2">
