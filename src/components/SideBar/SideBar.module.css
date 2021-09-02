@@ -1,7 +1,7 @@
 .sideBar {
   margin: 0;
   padding: 0;
-  width: 180px;
+  width: 200px;
   background-color: #212529;
   position: fixed;
   top: 0;
@@ -31,30 +31,40 @@
 
 @media screen and (max-width: 700px) {
   .sideBar {
-    width: 100%;
-    height: auto;
+    margin-left: -145px;
+    /* height: auto; */
     transition: 0.2s;
     z-index: 1;
   }
-  .displayNone a {
-    display: none;
+  body {
+    padding-left: 50px;
   }
 
-  .sideBar a {
+  /* //RESPONSIVE A NAVBAR */
+
+  /* .displayNone a {
+    display: none;
+  } */
+
+  /* .sideBar a {
     float: left;
     text-align: center;
-  }
-  div.content {
+  } */
+  /* div.content {
     margin-left: 0;
-  }
-  .sideBar a {
+  } */
+  /* .sideBar a {
     text-align: center;
     float: none;
-  }
+  } */
 }
 
 @media screen and (min-width: 701px) {
   .burgerButton {
     display: none !important;
   }
+}
+
+.showSideBar {
+  margin-left: 0;
 }

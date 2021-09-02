@@ -21,8 +21,8 @@ const SideBar = () => {
   function HandleOpenMenu() {
     console.log("message");
     if (mediaQuery.matches) {
-      const sideBarLinks = document.querySelector("#sideBarLinks");
-      sideBarLinks.classList.toggle(`${styles.displayNone}`);
+      const sideBar = document.querySelector("#sideBar");
+      sideBar.classList.toggle(`${styles.showSideBar}`);
 
       //addclases
     }
