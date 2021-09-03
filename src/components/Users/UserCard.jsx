@@ -6,7 +6,9 @@ function UserCard({ user, setUsers, users }) {
   const [loading, setLoading] = useState(false);
   const accessKey = useSelector((state) => state.accessKey);
 
-  const handleDestroyUser = (id) => {
+  const handleDestroyUser = (e) => {
+    const id = user.id;
+    e.preventDefault();
     axios
       .delete(`${process.env.REACT_APP_API}user`, {
         data: { id },
@@ -37,9 +39,9 @@ function UserCard({ user, setUsers, users }) {
               </div>
             ) : (
               <span
-                onClick={() => {
+                onClick={(e) => {
                   setLoading(true);
-                  handleDestroyUser(user.id);
+                  handleDestroyUser(e);
                 }}
               >
                 <svg
