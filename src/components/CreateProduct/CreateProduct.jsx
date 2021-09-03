@@ -59,7 +59,7 @@ const CreateProduct = () => {
       })
       .catch((error) => {
         if (error.response.status) {
-          alert('ESTE PRODUCTO YA EXISTE, CAMBIE DE NOMBRE ')
+          alert("ESTE PRODUCTO YA EXISTE, CAMBIE DE NOMBRE ");
         }
       });
   };
@@ -104,7 +104,7 @@ const CreateProduct = () => {
                 required
               ></textarea>
             </div>
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
               <input
                 type="checkbox"
                 className="form-check-input"

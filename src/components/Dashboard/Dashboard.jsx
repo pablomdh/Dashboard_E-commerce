@@ -49,8 +49,7 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6  ">
-            <Link
-              to="/create-product"
+            <Link to="/create-product"
               className="nav-link active"
               aria-current="page"
             >

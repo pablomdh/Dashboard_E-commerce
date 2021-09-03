@@ -225,6 +225,7 @@ const SideBar = () => {
             </>
           ) : (
             <Link
+              to="/login"
               style={{ cursor: "pointer", color: "white" }}
               onClick={() => history.push("/login")}
             >

@@ -59,7 +59,7 @@ function Categories() {
               {categories.map((category) => (
                 <tr key={category.id}>
                   <td>
-                    <input name="id" value={category.id} hidden />
+                    <input name="id" value={category.id} hidden readOnly />
                     <span>{category.name}</span>
                   </td>
                   <td>

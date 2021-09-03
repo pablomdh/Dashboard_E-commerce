@@ -41,6 +41,6 @@ function Orders() {
       </table>
     </div>
   );
-}
+}           
 
 export default Orders;
