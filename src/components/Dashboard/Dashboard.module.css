@@ -115,3 +115,9 @@
     display: none;
   }
 }
+
+@media screen and (min-width: 701px) {
+  .dashboardLogo {
+    display: none;
+  }
+}

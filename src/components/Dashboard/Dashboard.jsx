@@ -4,7 +4,14 @@ import styles from "./Dashboard.module.css";
 const Dashboard = () => {
   return (
     <>
-      <div className="container">
+      <div className="container mt-0">
+        <div className={`${styles.dashboardLogo} w-100 h-75`}>
+          <img
+            className="img-fluid"
+            src="/img/dashboard_logo.png"
+            alt="Panel de control"
+          />
+        </div>
         <div className={`${styles.fakeGraph} container m-auto text-center`}>
           <img src="/img/graph.png" alt="" className=" img-fluid shadow p-5" />
           <div className="d-flex justify-content-between  mt-3">
@@ -49,7 +56,8 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className="col-xl-4 col-lg-4  col-md-6  ">
-            <Link to="/create-product"
+            <Link
+              to="/create-product"
               className="nav-link active"
               aria-current="page"
             >
