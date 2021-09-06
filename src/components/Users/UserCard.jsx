@@ -1,27 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useState } from "react";
-import axios from "axios";
+import ConfirmationModal from "../ConfiramtionModal/ConfirmationModal";
 function UserCard({ user, setUsers, users }) {
   const [loading, setLoading] = useState(false);
-  const accessKey = useSelector((state) => state.accessKey);
+  const [modalShow, setModalShow] = React.useState(false);
 
-  const handleDestroyUser = (e) => {
-    const id = user.id;
-    e.preventDefault();
-    axios
-      .delete(`${process.env.REACT_APP_API}user`, {
-        data: { id },
-        headers: { Authorization: `Bearer ${accessKey.accesToken}` },
-      })
-      .then(() => {
-        const newUsers = users.filter((item) => item.id !== id);
-
-        setUsers(newUsers);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  };
   return (
     <>
       <tr key={user.id}>
@@ -40,8 +23,8 @@ function UserCard({ user, setUsers, users }) {
             ) : (
               <span
                 onClick={(e) => {
+                  setModalShow(true);
                   setLoading(true);
-                  handleDestroyUser(e);
                 }}
               >
                 <svg
@@ -57,6 +40,18 @@ function UserCard({ user, setUsers, users }) {
                 </svg>
               </span>
             )}
+            <ConfirmationModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              setUsers={setUsers}
+              users={users}
+              user={user}
+              setLoading={setLoading}
+              element={`${user.firstname} ${user.lastname}`}
+              categories={null}
+              category={null}
+              setCategories={null}
+            />
           </div>
         </td>
       </tr>

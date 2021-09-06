@@ -173,7 +173,7 @@ const UpdateProduct = () => {
                 {categories.map((category) => (
                   <option
                     value={category.id}
-                    selected={categoryId === category.id && true}
+                    selected={(categoryId === category.id) & true}
                   >
                     {category.name}
                   </option>

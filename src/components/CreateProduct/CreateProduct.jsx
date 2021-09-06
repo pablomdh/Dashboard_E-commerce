@@ -58,8 +58,11 @@ const CreateProduct = () => {
         });
       })
       .catch((error) => {
+        console.log(error);
         if (error.response.status) {
           alert("ESTE PRODUCTO YA EXISTE, CAMBIE DE NOMBRE ");
+        } else {
+          console.log(error);
         }
       });
   };
