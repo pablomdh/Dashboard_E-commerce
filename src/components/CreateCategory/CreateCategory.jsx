@@ -13,14 +13,12 @@ const CreateCategory = () => {
 
   const handleCreate = async (ev) => {
     ev.preventDefault();
-    const data = new FormData(ev.target);
 
-    await axios({
+    axios({
       method: "post",
       url: `${process.env.REACT_APP_API}category`,
-      data,
+      data: { name: name },
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${accessKey.accesToken}`,
       },
     });
