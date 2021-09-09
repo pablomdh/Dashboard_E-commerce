@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ConfirmationModal from "../ConfiramtionModal/ConfirmationModal";
+import ConfirmationDeleteModal from "./ConfirmationDeleteModal";
 
 function CategoriesCard({ category, setCategories, categories }) {
   const [loading, setLoading] = useState(false);
@@ -13,10 +13,7 @@ function CategoriesCard({ category, setCategories, categories }) {
         <input name="id" value={category.id} hidden readOnly />
         <span>{category.name}</span>
       </td>
-      <td>
-        <span></span>
-      </td>
-      <td>
+      <td colSpan="2">
         <div className="d-flex justify-content-between">
           <Link to={`/category/${category.slug}`}>
             <svg
@@ -58,12 +55,9 @@ function CategoriesCard({ category, setCategories, categories }) {
               </svg>
             </span>
           )}
-          <ConfirmationModal
+          <ConfirmationDeleteModal
             show={modalShow}
             onHide={() => setModalShow(false)}
-            setUsers={null}
-            users={null}
-            user={null}
             setLoading={setLoading}
             element={category.name}
             categories={categories}

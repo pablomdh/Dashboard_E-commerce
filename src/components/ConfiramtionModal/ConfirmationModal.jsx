@@ -11,37 +11,28 @@ function ConfirmationModal({
   setUsers,
   setLoading,
   element,
-  setCategories,
-  categories,
-  category,
+  product,
+  products,
+  setProducts,
 }) {
   const location = useLocation();
   const accessKey = useSelector((state) => state.accessKey);
-  const object = () => {
-    if (location.pathname === "/users") {
-      return "usuario";
-    } else if (location.pathname === "/categories") {
-      return "categoría";
-    } else {
-      return "producto";
-    }
-  };
 
-  const handleDestroyCategory = (e) => {
-    const id = category.id;
+  const handleDestroyProduct = (e) => {
     e.preventDefault();
+    const id = product.id;
     axios
-      .delete(`${process.env.REACT_APP_API}category`, {
+      .delete(`${process.env.REACT_APP_API}products`, {
         data: { id },
         headers: { Authorization: `Bearer ${accessKey.accesToken}` },
       })
       .then(() => {
-        const newCategories = categories.filter((item) => item.id !== id);
-        setCategories(newCategories);
+        const newProducts = products.filter((item) => item.id !== id);
+        setProducts(newProducts);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   };
-
   const handleDestroyUser = (e) => {
     const id = user.id;
     e.preventDefault();
@@ -87,14 +78,13 @@ function ConfirmationModal({
         >
           Cancelar
         </Button>
-        {object() === "/usuario" && (
-          <Button onClick={(e) => handleDestroyUser(e)}>
-            Eliminar {object()}
+        {location.pathname === "/products" ? (
+          <Button onClick={(e) => handleDestroyProduct(e)}>
+            Eliminar producto
           </Button>
-        )}
-        {object() === "categoría" && (
-          <Button onClick={(e) => handleDestroyCategory(e)}>
-            Eliminar {object()}
+        ) : (
+          <Button onClick={(e) => handleDestroyUser(e)}>
+            Eliminar usuario
           </Button>
         )}
       </Modal.Footer>

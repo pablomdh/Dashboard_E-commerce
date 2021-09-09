@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import ConfirmationModal from "../ConfiramtionModal/ConfirmationModal";
 function UserCard({ user, setUsers, users }) {
   const [loading, setLoading] = useState(false);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
@@ -48,9 +47,9 @@ function UserCard({ user, setUsers, users }) {
               user={user}
               setLoading={setLoading}
               element={`${user.firstname} ${user.lastname}`}
-              categories={null}
-              category={null}
-              setCategories={null}
+              products={null}
+              setProducts={null}
+              product={null}
             />
           </div>
         </td>
