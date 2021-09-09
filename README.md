@@ -14,6 +14,6 @@ Link al sitio:
 https://dashboard-e-commerce-sigma.vercel.app/login
 
 Link al Frontend público:
-https://frontend-e-commerce-react.vercel.app/
+https://frontend-e-commerce-react-steel.vercel.app/
 
 Gracias por leer!
