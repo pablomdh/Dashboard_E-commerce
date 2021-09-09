@@ -28,14 +28,14 @@ function App() {
             {/* <Route exact path="/registro" component={PageSignUp} /> */}
             <Route exact path="/login" component={PageLogIn} />
             <PrivateRoute exact path="/" component={Dashboard} />
-            <PrivateRoute exact path="/products" component={Products} />
-            <PrivateRoute exact path="/create-product" component={CreateProduct} />
-            <PrivateRoute exact path="/orders" component={Orders} />
             <PrivateRoute exact path="/graphs" component={Graphs} />
+            <PrivateRoute exact path="/orders" component={Orders} />
             <PrivateRoute exact path="/users" component={PageUsers} />
             <PrivateRoute exact path="/categories" component={Categories} />
             <PrivateRoute exact path="/create-category" component={CreateCategory} />
             <PrivateRoute exact path="/category/:slug" component={Category} />
+            <PrivateRoute exact path="/products" component={Products} />
+            <PrivateRoute exact path="/create-product" component={CreateProduct} />
             <PrivateRoute exact path="/:slug" component={UpdateProduct} />
             <Route component={NoMatch} />
           </Switch>

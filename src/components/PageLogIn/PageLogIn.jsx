@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 function PageLogIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@admin.com");
+  const [password, setPassword] = useState("admin123");
+  const [showPassword, setShowPassword] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -25,6 +28,11 @@ function PageLogIn() {
         console.log(error);
       });
   }
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="container">
       <div
@@ -55,22 +63,29 @@ function PageLogIn() {
             name="email"
             id="email"
             placeholder="Ingrese su e-mail aquí"
-            className="  px-3 py-2 w-100 border-0"
+            className="  px-3 py-2 w-100"
             required
           />
           <label htmlFor="password" className="text-dark  my-3  ps-3 fs-8 fw-bold">
             Contraseña
           </label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Ingrese su contraseña aquí"
-            className="  px-3 py-2 w-100 border-0"
-            required
-          />
+          <div class="row d-flex text-align-center">
+            <div className="col-10">
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Ingrese su contraseña aquí"
+                className="  px-3 py-2 w-100"
+                value={password}
+                required
+              />
+            </div>
+            <div className="col-2" onClick={() => handleClickShowPassword()}>
+              <span>{showPassword ? <Visibility /> : <VisibilityOff />}</span>
+            </div>
+          </div>
           <button type="submit" className="btn btn-dark mt-3">
             Ingresar
           </button>
